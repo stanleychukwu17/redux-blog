@@ -2,3 +2,6 @@
     background: #34495e; padding: 15px 2%;
 }
 .header1 { font-size: 40px; color: #fff; }
+.header2 { font-size: 20px; color: #fff; }
+.header2 > div { margin: 14px 10px 0; }
+.header2 a { color: #fff;text-decoration:none; }
