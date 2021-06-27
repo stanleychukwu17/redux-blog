@@ -5,4 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #ecf0f1;
 }
+div { display: block; position:relative; overflow:hidden; }
+.it_fl { float: left; }
+.it_rl { float: right; }
