@@ -7,6 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #ecf0f1;
 }
+h1, h2, h3, p { margin: 0; }
 div { display: block; position:relative; overflow:hidden; }
 .it_fl { float: left; }
 .it_rl { float: right; }
+
+.HmCvr0{ margin: 30px 0; }
+.HmLft_sd { width: 20%; background: #fff; height: 300px; }
+.HmRgt_sd { width: 60%; margin: 0 0 0 5%; }
