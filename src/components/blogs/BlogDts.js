@@ -1,6 +1,6 @@
 const BlogDts = (props) => {
     return (
-        <div>
+        <div className="dahlah">
             <div>Latest blogs</div>
             <div>
                 <div>
