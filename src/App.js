@@ -2,6 +2,7 @@ import Header from './components/header/Header';
 import SideComp from './components/sidebar/SideComp';
 import BlogDts from './components/blogs/BlogDts';
 
+
 function App() {
   return (
     <div className="">
