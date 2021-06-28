@@ -8,3 +8,6 @@
     -webkit-box-shadow: 0px 0px 5px 0px rgba(72,87,158,0.05);
     -moz-box-shadow: 0px 0px 5px 0px rgba(72,87,158,0.05);
 }
+.Blgtop { padding: 5px 0; font-size: 19px; }
+.Blgtt2 { padding: 5px 0; font-size: 13.45px; letter-spacing:1px; }
+.BlgInr { line-height: 1.7; padding: 5px 0; font-size: 15px; }
