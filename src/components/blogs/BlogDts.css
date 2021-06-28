@@ -10,4 +10,5 @@
 }
 .Blgtop { padding: 5px 0; font-size: 19px; }
 .Blgtt2 { padding: 5px 0; font-size: 13.45px; letter-spacing:1px; }
-.BlgInr { line-height: 1.7; padding: 5px 0; font-size: 15px; }
+.BlgInr { line-height: 1.7; padding: 5px 0 0; font-size: 15px; }
+.BlgInr img { width: 35px; height: 35px;}

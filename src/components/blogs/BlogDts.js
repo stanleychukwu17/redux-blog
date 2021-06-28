@@ -9,8 +9,16 @@ const BlogDts = (props) => {
                     <div className="Blgtop">Buhari is no longer travelling to uk</div>
                     <div className="Blgtt2"><div className="it_fl">Author: Chukwu Stanley</div> <div className="it_rl">2 days ago</div></div>
                     <div className="BlgInr">
-                        <p>Our very sick president has decide to leave Nigeria to seek medical attension overseas so that he can continue to waste our precious money for nothing sake</p>
-                        <p></p>
+                        <div>Our very sick president has decide to leave Nigeria to seek medical attension overseas so that he can continue to waste our precious money for nothing sake</div>
+                        <div>
+                            <div className="it_fl">
+                                <div className="it_fl">
+                                    <img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/like-512.png" alt="" />
+                                </div>
+                                <div className="it_fl"><img src="https://cdn2.iconfinder.com/data/icons/bitsies/128/Message-256.png" alt="" /></div>
+                            </div>
+                            <div className="it_rl"></div>
+                        </div>
                     </div>
                 </div>
                 <div className="BlgEch">
