@@ -1,3 +1,5 @@
+import './SideComp.css'
+
 const SideComp = () => {
     return (
         <div className="">
