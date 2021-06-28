@@ -11,4 +11,8 @@
 .Blgtop { padding: 5px 0; font-size: 19px; }
 .Blgtt2 { padding: 5px 0; font-size: 13.45px; letter-spacing:1px; }
 .BlgInr { line-height: 1.7; padding: 5px 0 0; font-size: 15px; }
-.BlgInr img { width: 35px; height: 35px;}
+.BlgInr img { width: 35px; height: 35px; cursor: pointer; }
+.BlgcOvr { margin: 7px 0 0; }
+.BlgcIcon { margin: 7px 0 0 14px; }
+.BlgcIcon img { width: 25px; height: 25px; }
+.BlgcStats { margin: 8px 0 0; font-size: 11px; line-height: 1.5; font-weight: bold; color: #273054; }
