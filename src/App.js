@@ -11,7 +11,7 @@ function App() {
         <div className="it_fl HmRgt_sd"><BlogDts /></div>
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
