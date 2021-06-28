@@ -1,8 +1,10 @@
+import './BlogDts.css';
+
 const BlogDts = (props) => {
     return (
         <div className="dahlah">
-            <div>Latest blogs</div>
-            <div>
+            <div className="Blghdr">Latest blogs</div>
+            <div className="">
                 <div>
                     <div>Buhari is no longer travelling to uk</div>
                     <div>
