@@ -1,1 +1,10 @@
-.Blghdr { width: 150px; background:#fff; padding: 10px 15px; font-size: 17px; font-weight:bold; }
+.Blghdr {
+    width: 150px; background:#fff; padding: 10px 15px; font-size:20px; font-weight:bold; border-radius: 4px;
+    border-bottom: 4px solid #f39c12;
+}
+.BlgEch {
+    margin: 20px 1%; padding: 10px 4% 10px 2%; background: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(72,87,158,0.05);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(72,87,158,0.05);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(72,87,158,0.05);
+}
