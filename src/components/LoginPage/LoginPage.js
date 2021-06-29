@@ -6,9 +6,11 @@ import {userInLogginPage} from '../../redux/actions'
 import './LoginPage.css'
 
 const LoginPage = (props) => {
+    let userInLogginPage = props.userInLogginPage;
+
     useEffect(() => {
-        props.userInLogginPage();
-    }, []);
+        userInLogginPage();
+    }, [userInLogginPage]);
 
     return (
         <div className="LogBoss">
