@@ -15,3 +15,7 @@ div { display: block; position:relative; overflow:hidden; }
 .HmCvr0{ margin: 30px 0; }
 .HmLft_sd { width: 20%; background: #fff; height: 450px; }
 .HmRgt_sd { width: 55%; margin: 0 0 0 5%; }
+
+.button_blue { border: 1px solid transparent; color: #fff !important; text-align: center; background: #3867d6; cursor: pointer; outline: 0; }
+.button_blue:hover { box-shadow: none; font-weight: bold; }
+.button_blue:active { position: relative; top: 1px;}

@@ -9,7 +9,7 @@ const NewBlog = (props) => {
                 <div className="Nwbg_inps"><p>Author:</p> <p><input type="text" /></p></div>
                 <div className="Nwbg_inps"><p>Content:</p> <p><input type="text" /></p></div>
             </div>
-            <div><button>Save new blog</button></div>
+            <div className="BlgBtn"><button className="button_blue">Save new blog</button></div>
         </div>
     );
 }
