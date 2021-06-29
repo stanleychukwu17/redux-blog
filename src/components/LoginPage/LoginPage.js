@@ -1,6 +1,9 @@
 import {useEffect} from 'react'
 import {connect} from 'react-redux'
+
+
 import {userInLogginPage} from '../../redux/actions'
+import './LoginPage.css'
 
 const LoginPage = (props) => {
     useEffect(() => {
@@ -9,7 +12,18 @@ const LoginPage = (props) => {
 
     return (
         <div>
-            <button>click me</button>
+            <div className="it_fl">
+                <div>Already a user, then Sign in</div>
+                <div>
+
+                </div>
+            </div>
+            <div className="it_fl">
+                <div>New user, Register here!</div>
+                <div>
+
+                </div>
+            </div>
         </div>
     );
 }
