@@ -1,18 +1,15 @@
-.Blghdr {
-    width: 50%; background:#fff; padding: 10px 15px; font-size:20px; font-weight:bold; border-radius: 4px; border-bottom: 4px solid #f39c12;
+.Blgortp {
+    width: 270px; background:#fff; padding: 10px 15px; font-size:20px; font-weight:bold; border-radius: 4px; border-bottom: 4px solid #f39c12;
 }
 .BlgorCv { margin: 30px 0 0; }
 .Nwbg_inps { padding: 10px 0; font-size: 18px;}
-.Nwbg_inps input {
-	width: 400px; height: 30px;
-	border: 1px solid #e3e3e3;
-	border-radius: 3px;
-	padding: 5px 0 5px 10px;
-	font-family: "Trebuchet MS";
-	font-size: 23px;
-	color: inherit;
+.Nwbg_inps input, .Nwbg_inps select, .Nwbg_inps textarea {
+	width: 400px; height: 30px; border: 1px solid #e3e3e3; border-radius: 3px; padding: 5px 0 5px 10px; font-size: 17px; color: inherit;
 	box-shadow: 0 2px 0 rgba(234, 234, 234, 0.1), 0 1px 3px 0 rgba(234, 234, 234, 1) inset;
 }
+.Nwbg_inps select { width: 415px; height: 45px; }
+.Nwbg_inps textarea { height: 130px; }
+
 
 .BlgBtn { padding:10px 0; }
 .BlgBtn button { padding: 10px 15px 8px; font-size: 17px; border-radius: 2px; box-shadow: 3px 3px 0 rgba(0,0,0,0.05); }
