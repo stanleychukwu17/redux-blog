@@ -4,6 +4,7 @@ import Header from './components/header/Header';
 import SideComp from './components/sidebar/SideComp';
 import BlogDts from './components/blogs/BlogDts';
 import NewBlog from './components/blogs/NewBlog';
+import LoginPage from './components/LoginPage/LoginPage';
 
 console.log('this is the root of all the man them');
 
@@ -18,6 +19,7 @@ function App() {
               <Switch>
                 <Route exact path="/"><BlogDts /></Route>
                 <Route exact path="/new_blog"><NewBlog /></Route>
+                <Route exact path="/login"><NewBlog /></Route>
               </Switch>
             </div>
         </div>
