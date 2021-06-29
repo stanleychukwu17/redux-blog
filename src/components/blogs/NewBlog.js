@@ -4,6 +4,11 @@ import './NewBlog.css'
 
 const NewBlog = (props) => {
     console.log(props);
+    // if the user is not logged in, we re-direct to the logging page
+    if (!props.logged_in) {
+        return <Redirect to='/login' />;
+    }
+
     return (
         <div>
             <div className="Blghdr">Posting a new blog</div>
