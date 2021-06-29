@@ -14,5 +14,5 @@
 	box-shadow: 0 2px 0 rgba(234, 234, 234, 0.1), 0 1px 3px 0 rgba(234, 234, 234, 1) inset;
 }
 
-.BlgBtn { padding: 10px 0; }
+.BlgBtn { padding:10px 0; }
 .BlgBtn button { padding: 10px 15px 8px; font-size: 17px; border-radius: 2px; box-shadow: 3px 3px 0 rgba(0,0,0,0.05); }
