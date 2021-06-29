@@ -8,6 +8,10 @@ import './LoginPage.css'
 const LoginPage = (props) => {
     let userInLogginPage = props.userInLogginPage;
 
+    let login = (event) => {
+        console.log(event, 'time to loggin in new brather!');
+    }
+
     useEffect(() => {
         userInLogginPage();
     }, [userInLogginPage]);
@@ -19,7 +23,7 @@ const LoginPage = (props) => {
                 <div>
                     <div className="LogDinp"><p>Username</p> <p><input type="text" /></p></div>
                     <div className="LogDinp"><p>Password</p> <p><input type="password" /></p></div>
-                    <div className="LogDBtn"><button className="button_blue">Done, Sign-in</button></div>
+                    <div className="LogDBtn"><button onClick={login} className="button_blue">Done, Sign-in</button></div>
                 </div>
             </div>
             <div className="it_fl LogBamCvr">
