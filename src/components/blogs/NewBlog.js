@@ -1,6 +1,8 @@
+import {connect} from 'react-redux'
 import './NewBlog.css'
 
 const NewBlog = (props) => {
+    console.log(props);
     return (
         <div>
             <div className="Blghdr">Posting a new blog</div>
@@ -14,4 +16,10 @@ const NewBlog = (props) => {
     );
 }
 
-export default NewBlog;
+let mapStateToProps = (state) => {
+    return {
+        'logged_in':state.logged_in
+    }
+}
+
+export default connect(mapStateToProps)(NewBlog);
