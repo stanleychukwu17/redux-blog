@@ -4,7 +4,6 @@ import './SideComp.css'
 
 const SideComp = (props) => {
 
-    console.log(props.logged_in_page_open)
     return (
         !props.logged_in_page_open && (
             <div className="it_fl HmLft_sd">
