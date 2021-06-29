@@ -1,0 +1,6 @@
+.HmRgt_sd { width: 70%; }
+.LogBoss { background: #fff; padding: 10px 0; }
+.LogBamCvr { width:45%; padding: 10px 0 10px 2%; }
+.LogBamCvr:first-child { box-shadow: 5px 0 0 rgba(234, 234, 234, 0.3); z-index: 1; }
+
+.LogDkn { padding: 0 0 10px; font-size:23px; }

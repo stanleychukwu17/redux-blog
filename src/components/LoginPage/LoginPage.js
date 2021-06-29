@@ -11,17 +11,21 @@ const LoginPage = (props) => {
     }, []);
 
     return (
-        <div>
-            <div className="it_fl">
-                <div>Already a user, then Sign in</div>
+        <div className="LogBoss">
+            <div className="it_fl LogBamCvr">
+                <div className="LogDkn">Already a user, then Sign in</div>
                 <div>
-
+                    <div><p>Username</p> <p><input type="text" /></p></div>
+                    <div><p>Password</p> <p><input type="password" /></p></div>
+                    <div><button className="button_blue">Done, Sign-in</button></div>
                 </div>
             </div>
-            <div className="it_fl">
-                <div>New user, Register here!</div>
+            <div className="it_fl LogBamCvr">
+                <div className="LogDkn">New user, then join our community</div>
                 <div>
-
+                    <div><p>Username</p> <p><input type="text" /></p></div>
+                    <div><p>Password</p> <p><input type="password" /></p></div>
+                    <div><button className="button_blue">Register</button></div>
                 </div>
             </div>
         </div>
