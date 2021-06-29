@@ -2,15 +2,19 @@ import {connect} from 'react-redux'
 import './SideComp.css'
 
 
-const SideComp = () => {
+const SideComp = (props) => {
+
+    console.log(props.logged_in_page_open)
     return (
-        <div className="">
-            <div className="SdrLst1">Lastest activites</div>
-            <div className="SdrDts2">
-                <div><p>Stanley posted a new blog</p></div>
-                <div><p>Stanley posted a new blog</p></div>
+        !props.logged_in_page_open && (
+            <div className="it_fl HmLft_sd">
+                <div className="SdrLst1">Lastest activites</div>
+                <div className="SdrDts2">
+                    <div><p>Stanley posted a new blog</p></div>
+                    <div><p>Stanley posted a new blog</p></div>
+                </div>
             </div>
-        </div>
+        )
     );
 }
 

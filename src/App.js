@@ -16,7 +16,7 @@ function App() {
         <div className="nahere">
             <div><Header /></div>
             <div className="HmCvr0">
-              <div className="it_fl HmLft_sd"><SideComp /></div>
+              <SideComp />
               <div className="it_fl HmRgt_sd">
                   <Switch>
                     <Route exact path="/"><BlogDts /></Route>

@@ -1,8 +1,11 @@
+import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {userInLogginPage} from '../../redux/actions'
 
 const LoginPage = (props) => {
-    props.userInLogginPage();
+    useEffect(() => {
+        props.userInLogginPage();
+    }, []);
 
     return (
         <div>
