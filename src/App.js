@@ -5,6 +5,7 @@ import SideComp from './components/sidebar/SideComp';
 import BlogDts from './components/blogs/BlogDts';
 import NewBlog from './components/blogs/NewBlog';
 
+console.log('this is the root of all the man them');
 
 function App() {
   return (
