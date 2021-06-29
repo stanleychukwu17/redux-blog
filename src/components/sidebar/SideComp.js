@@ -1,4 +1,6 @@
+import {connect} from 'react-redux'
 import './SideComp.css'
+
 
 const SideComp = () => {
     return (
@@ -11,5 +13,8 @@ const SideComp = () => {
         </div>
     );
 }
- 
-export default SideComp;
+
+let mapStateToProps = (state) => {
+    return {'logged_in_page_open':state.logged_in_page_open}
+}
+export default connect(mapStateToProps)(SideComp);
