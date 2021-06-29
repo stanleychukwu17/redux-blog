@@ -1,5 +1,5 @@
 const initialState = {
-
+    'logged_in':'no'
 };
 
 export const main_reducer = (state = initialState, action) => {
