@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import './NewBlog.css'
 
 const NewBlog = (props) => {
