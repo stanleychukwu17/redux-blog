@@ -40,8 +40,12 @@ const LoginPage = (props) => {
     );
 }
 
+let mapStateToProps = (state) => {
+    return {'all_users':state.all_users};
+}
+
 let mapDispatchToProps = (dispatch) => {
     return {'userInLogginPage':() => dispatch(userInLogginPage())}
 }
  
-export default connect(null, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
