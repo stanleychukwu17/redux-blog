@@ -1,5 +1,6 @@
 const initialState = {
-    'logged_in':false, 'logged_in_page_open':false, 'all_users':[]
+    'logged_state':{'logged_in':false, 'logged_in_page_open':false},
+    'all_users':[]
 };
 
 export const main_reducer = (state = initialState, action) => {
