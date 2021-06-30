@@ -8,13 +8,17 @@ import './LoginPage.css'
 
 const LoginPage = (props) => {
     let history = useHistory();
-
-    // if the use is logged_in, then no need to see this page
-    if (props.logged_in) history.go(-1);
-
     let userInLogginPage = props.userInLogginPage;
     let [uLog, setULog] = useState('');
     let [pLog, setPLog] = useState('');
+
+    useEffect(() => {
+        if (!props.logged_in) userInLogginPage(true);
+    }, []);
+
+    // if the use is logged_in, then no need to see this page
+    if (props.logged_in) history.go(-1);
+    if (props.logged_in) { return (<div className=""></div>); }
 
     let login = async (event) => {
         let users = await fetch('http://localhost:8000/users')
@@ -29,10 +33,6 @@ const LoginPage = (props) => {
             props.userHasLoggedIn(udts);
         }
     }
-
-    useEffect(() => {
-        userInLogginPage(true);
-    }, []);
 
     return (
         <div className="LogBoss">
