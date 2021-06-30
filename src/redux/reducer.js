@@ -1,8 +1,13 @@
-const initialState = {
-    'logged_in':false, 'logged_in_page_open':false,
-    'udts':{},
+let initialState = {
+    'logged_in':false, 'logged_in_page_open':false, 'udts':{},
     'all_users':[]
 };
+
+let kamil = window.sessionStorage.getItem('logged_in_dts');
+if (kamil != null) {
+    kamil = JSON.parse(kamil);
+    initialState = {...initialState, logged_in:kamil.logged_in, 'udts':kamil.udts};
+}
 
 export const main_reducer = (state = initialState, action) => {
     switch (action.type) {

@@ -31,7 +31,7 @@ const LoginPage = (props) => {
         if (inIt) {
             props.userInLogginPage(false);
             props.userHasLoggedIn(udts);
-            window.sessionStorage.setItem('jagger', JSON.stringify({'logged_in':'yes', 'udts':udts}));
+            window.sessionStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
             history.go(-1);
         }
     }
