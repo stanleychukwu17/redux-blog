@@ -1,7 +1,10 @@
 import {Link} from 'react-router-dom'
 import './Header.css';
 
+import {connect} from 'react-redux'
+
 const Header = (props) => {
+    console.log(props);
     return (
         <div className="headerTop">
             <div className="it_fl header1">Stanlo blog</div>
@@ -13,5 +16,9 @@ const Header = (props) => {
         </div>
     );
 }
+
+let mapStateToProps = (state) => {
+    return {'logged_in': state.logged_in};
+}
  
-export default Header;
+export default connect(mapStateToProps)(Header);
