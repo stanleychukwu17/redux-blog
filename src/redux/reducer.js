@@ -14,7 +14,6 @@ export const main_reducer = (state = initialState, action) => {
             return {...state, 'logged_in':true, 'udts':action.payload}
         }
         case 'USER_HAS_LOGGED_OUT' : {
-            console.log('e don happen');
             return {...state, 'logged_in':false}
         }
         default : return state

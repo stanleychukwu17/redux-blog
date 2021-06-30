@@ -7,7 +7,7 @@ import {userHasLoggedOut} from '../../redux/actions'
 const Header = (props) => {
     let wch_link = '';
 
-    if (props.logged_in) { wch_link = <a href="/logout" onClick={LogoutUser}>Logout</a>  }
+    if (props.logged_in) { wch_link = <a href="#" onClick={LogoutUser}>Logout</a>  }
     else { wch_link = <Link to="/login">Login</Link>  }
 
     return (
@@ -22,6 +22,7 @@ const Header = (props) => {
     );
 
     function LogoutUser (event) {
+        props.userHasLoggedOut();
         event.preventDefault();
     }
 }
@@ -31,7 +32,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return {'logout': () => dispatch(userHasLoggedOut())}
+    return {'userHasLoggedOut': () => dispatch(userHasLoggedOut())}
 }
  
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
