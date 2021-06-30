@@ -1,6 +1,6 @@
 {
     "blogs":[],
     "users":[
-        {"id":1, "name":"stanley chukwu"}
+        {"id":1, "name":"stanley", "password":"stanley"}
     ]
 }

@@ -10,8 +10,17 @@ const LoginPage = (props) => {
     let [uLog, setULog] = useState('');
     let [pLog, setPLog] = useState('');
 
-    let login = (event) => {
-        console.log(uLog, pLog, 'time to loggin in new brather!');
+    let login = async (event) => {
+        let users = await fetch('http://localhost:8000/users')
+        let fusers = await users.json()
+
+        console.log(fusers);
+        let inIt = fusers.some(obj => {
+            console.log(obj);
+            return (uLog === obj.name && pLog === obj.password);
+        });
+
+        console.log(uLog, pLog, inIt);
     }
 
     useEffect(() => {
@@ -23,8 +32,8 @@ const LoginPage = (props) => {
             <div className="it_fl LogBamCvr">
                 <div className="LogDkn">Already a user, then Sign in</div>
                 <div>
-                    <div className="LogDinp"><p>Username</p> <p><input type="text" value={uLog} onChange={(e)=>setULog(e.target.value)} /></p></div>
-                    <div className="LogDinp"><p>Password</p> <p><input type="password" value={pLog} onChange={(e)=>setPLog(e.target.value)} /></p></div>
+                    <div className="LogDinp"><p>Username</p> <p><input type="text" value={uLog} onChange={(e)=>setULog(e.target.value.trim())} /></p></div>
+                    <div className="LogDinp"><p>Password</p> <p><input type="password" value={pLog} onChange={(e)=>setPLog(e.target.value.trim())} /></p></div>
                     <div className="LogDBtn"><button onClick={login} className="button_blue">Done, Sign-in</button></div>
                 </div>
             </div>
@@ -40,12 +49,8 @@ const LoginPage = (props) => {
     );
 }
 
-let mapStateToProps = (state) => {
-    return {'all_users':state.all_users};
-}
-
 let mapDispatchToProps = (dispatch) => {
     return {'userInLogginPage':() => dispatch(userInLogginPage())}
 }
  
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(null, mapDispatchToProps)(LoginPage);
