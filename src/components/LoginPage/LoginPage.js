@@ -14,17 +14,15 @@ const LoginPage = (props) => {
         let users = await fetch('http://localhost:8000/users')
         let fusers = await users.json()
 
-        console.log(fusers);
-        let inIt = fusers.some(obj => {
-            console.log(obj);
-            return (uLog === obj.name && pLog === obj.password);
-        });
+        // checks to see if the user matches any of the users in the datatbase
+        let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
 
-        console.log(uLog, pLog, inIt);
+        if (inIt) {userInLogginPage(false)}
+        console.log(inIt);
     }
 
     useEffect(() => {
-        userInLogginPage();
+        userInLogginPage(true);
     }, [userInLogginPage]);
 
     return (
@@ -50,7 +48,9 @@ const LoginPage = (props) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return {'userInLogginPage':() => dispatch(userInLogginPage())}
+    return {
+        'userInLogginPage':(wch) => dispatch(userInLogginPage(wch))
+    }
 }
  
 export default connect(null, mapDispatchToProps)(LoginPage);
