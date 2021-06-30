@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 
 
-import {userInLogginPage} from '../../redux/actions'
+import {userInLogginPage, userHasLoggedIn} from '../../redux/actions'
 import './LoginPage.css'
 
 const LoginPage = (props) => {
@@ -16,14 +16,17 @@ const LoginPage = (props) => {
 
         // checks to see if the user matches any of the users in the datatbase
         let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
+        let udts = fusers.filter(obj => (uLog === obj.name && pLog === obj.password));
 
-        if (inIt) {userInLogginPage(false)}
-        console.log(inIt);
+        if (inIt) {
+            props.userInLogginPage(false);
+            props.userHasLoggedIn(udts);
+        }
     }
 
     useEffect(() => {
         userInLogginPage(true);
-    }, [userInLogginPage]);
+    }, []);
 
     return (
         <div className="LogBoss">
@@ -49,7 +52,8 @@ const LoginPage = (props) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        'userInLogginPage':(wch) => dispatch(userInLogginPage(wch))
+        'userInLogginPage':(wch) => dispatch(userInLogginPage(wch)),
+        'userHasLoggedIn':(udts) => dispatch(userHasLoggedIn(udts))
     }
 }
  
