@@ -1,8 +1,14 @@
 import {Link} from 'react-router-dom'
-import './Header.css';
 import {connect} from 'react-redux'
 
 import {userHasLoggedOut} from '../../redux/actions'
+import './Header.css';
+
+let james = {'logged':'ues', 'name':'banza'};
+window.sessionStorage.setItem('jagger', JSON.stringify(james));
+let dts = window.sessionStorage.getItem('jagger');
+console.log(dts);
+window.sessionStorage.clear();
 
 const Header = (props) => {
     let wch_link = '';
