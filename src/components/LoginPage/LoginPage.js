@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 
@@ -6,6 +7,11 @@ import {userInLogginPage, userHasLoggedIn} from '../../redux/actions'
 import './LoginPage.css'
 
 const LoginPage = (props) => {
+    let history = useHistory();
+
+    // if the use is logged_in, then no need to see this page
+    if (props.logged_in) history.go(-1);
+
     let userInLogginPage = props.userInLogginPage;
     let [uLog, setULog] = useState('');
     let [pLog, setPLog] = useState('');
@@ -50,6 +56,10 @@ const LoginPage = (props) => {
     );
 }
 
+let mapStateToProps = (state) => {
+    return {'logged_in': state.logged_in}
+}
+
 let mapDispatchToProps = (dispatch) => {
     return {
         'userInLogginPage':(wch) => dispatch(userInLogginPage(wch)),
@@ -57,4 +67,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
  
-export default connect(null, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
