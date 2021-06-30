@@ -7,7 +7,7 @@ const Header = (props) => {
     let wch_link = '';
     console.log(props);
 
-    if (props.logged_in) { wch_link = <a href="#" onClick={LogoutUser}>Logout</a>  }
+    if (props.logged_in) { wch_link = <a href="/logout" onClick={LogoutUser}>Logout</a>  }
     else { wch_link = <Link to="/login">Login</Link>  }
 
     return (

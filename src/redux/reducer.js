@@ -13,6 +13,9 @@ export const main_reducer = (state = initialState, action) => {
         case 'USER_HAS_LOGGED_IN' : {
             return {...state, 'logged_in':true, 'udts':action.payload}
         }
+        case 'USER_HAS_LOGGED_OUT' : {
+            return {...state, 'logged_in':false}
+        }
         default : return state
     }
 }
