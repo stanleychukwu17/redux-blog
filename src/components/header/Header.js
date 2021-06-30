@@ -1,11 +1,11 @@
 import {Link} from 'react-router-dom'
 import './Header.css';
-
 import {connect} from 'react-redux'
+
+import {userHasLoggedOut} from '../../redux/actions'
 
 const Header = (props) => {
     let wch_link = '';
-    console.log(props);
 
     if (props.logged_in) { wch_link = <a href="/logout" onClick={LogoutUser}>Logout</a>  }
     else { wch_link = <Link to="/login">Login</Link>  }
@@ -22,7 +22,6 @@ const Header = (props) => {
     );
 
     function LogoutUser (event) {
-        console.log(event);
         event.preventDefault();
     }
 }
@@ -32,7 +31,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return {'logout': () => dispatch()}
+    return {'logout': () => dispatch(userHasLoggedOut())}
 }
  
 export default connect(mapStateToProps)(Header);
