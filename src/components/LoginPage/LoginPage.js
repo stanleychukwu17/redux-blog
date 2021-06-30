@@ -11,7 +11,7 @@ const LoginPage = (props) => {
     let [pLog, setPLog] = useState('');
 
     let login = (event) => {
-        console.log(event,uLog, pLog, 'time to loggin in new brather!');
+        console.log(uLog, pLog, 'time to loggin in new brather!');
     }
 
     useEffect(() => {
