@@ -74,8 +74,9 @@ const LoginPage = (props) => {
                 method: 'POST', headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify({'name': newUser, 'password':newPass})
             }).then(re => {
-                setULog(newUser)
-                setPLog(newPass)
+                setULog(newUser);
+                setPLog(newPass);
+                console.log(uLog, pLog);
                 login()
             })
         }
