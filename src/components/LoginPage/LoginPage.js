@@ -53,7 +53,6 @@ const LoginPage = (props) => {
         let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
         let udts = fusers.filter(obj => (uLog === obj.name && pLog === obj.password));
 
-        console.log('called', inIt, fusers, udts, uLog, pLog, 'nothing');
         if (inIt) {
             props.userInLogginPage(false);
             props.userHasLoggedIn(udts);
@@ -77,9 +76,8 @@ const LoginPage = (props) => {
                 method: 'POST', headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify({'name': newUser, 'password':newPass})
             }).then(re => {
-                setULog(newUser);
-                setPLog(newPass);
-                console.log(uLog, pLog);
+                uLog = newUser;
+                pLog = newPass;
                 login()
             })
         }
