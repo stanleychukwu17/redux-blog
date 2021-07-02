@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import './NewBlog.css'
 
 const NewBlog = (props) => {
-    console.log(props);
+
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) {
         return <Redirect to='/login' />;
