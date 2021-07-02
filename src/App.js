@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { useQueryClient, QueryClient, QueryClientProvider, } from 'react-query'
 
 import {store} from './redux/store';
 

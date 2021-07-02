@@ -1,8 +1,16 @@
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom';
+import { useQuery } from 'react-query';
 import './NewBlog.css'
 
+async function fecthUsers () {
+    let users = await fetch('http://localhost:8000/users');
+    let fusers = users.json();
+    return fusers;
+}
+
 const NewBlog = (props) => {
+    let {data, status} = useQuery('users', fecthUsers)
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) {
