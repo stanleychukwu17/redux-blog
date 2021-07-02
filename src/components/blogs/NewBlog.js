@@ -12,9 +12,11 @@ async function fecthUsers () {
 
 const NewBlog = (props) => {
     let {data, status} = useQuery('users', fecthUsers)
-    let [opts, setOpts] = useState([])
-    // if (status === 'success') { console.log('rernder the component'); }
-    console.log('rendered')
+    let [opts, setOpts] = useState([    {
+        "id": 1,
+        "name": "james",
+        "password": "stanley"
+      }])
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) {
@@ -26,7 +28,14 @@ const NewBlog = (props) => {
             <div className="Blgortp">Posting a new blog</div>
             <div className="BlgorCv">
                 <div className="Nwbg_inps"><p>Title:</p> <p><input type="text" /></p></div>
-                <div className="Nwbg_inps"><p>Author:</p> <p><select><option value="">Stanley</option></select></p></div>
+                <div className="Nwbg_inps">
+                    <p>Author:</p>
+                    <p>
+                        <select>{
+                            status === 'success' && data.map(itm => <option key={itm.id} value={itm.id}>{itm.name}</option>)
+                        }</select>
+                    </p>
+                </div>
                 <div className="Nwbg_inps"><p>Content:</p> <p><textarea></textarea></p></div>
             </div>
             <div className="BlgBtn"><button className="button_blue">Save new blog</button></div>

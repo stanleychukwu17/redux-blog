@@ -19,7 +19,7 @@ const LoginPage = (props) => {
     }, []);
 
     // if the use is logged_in, then no need to see this page
-    if (props.logged_in) history.go(-1);
+    if (props.logged_in) history.push('/');
     if (props.logged_in) { return (<div className=""></div>); }
 
     return (

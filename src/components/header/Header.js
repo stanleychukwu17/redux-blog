@@ -7,7 +7,7 @@ import './Header.css';
 const Header = (props) => {
     let wch_link = '';
 
-    if (props.logged_in) { wch_link = <a href="#" onClick={LogoutUser}>Logout</a>  }
+    if (props.logged_in) { wch_link = <a href="/" onClick={LogoutUser}>Logout</a>  }
     else { wch_link = <Link to="/login">Login</Link>  }
 
     return (
