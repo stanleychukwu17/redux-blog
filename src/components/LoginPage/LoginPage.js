@@ -53,7 +53,7 @@ const LoginPage = (props) => {
         let users = await fetch('http://localhost:8000/users')
         let fusers = await users.json()
 
-        if (!chk_info([uLog, pLog])) { alert('the length of your username or password might be too short');  return false; }
+        if (!chk_info([uLog, pLog])) { alert('the length of your username or password might be too short'); return false; }
 
         // checks to see if the user matches any of the users in the datatbase
         let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
@@ -64,6 +64,8 @@ const LoginPage = (props) => {
             props.userHasLoggedIn(udts);
             window.sessionStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
             history.go(-1);
+        } else {
+            alert('the length of your username or password might be too short'); return false;
         }
     }
 
