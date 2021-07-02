@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { useQueryClient, QueryClient, QueryClientProvider, } from 'react-query'
+import { QueryClient, QueryClientProvider, } from 'react-query'
 
 import {store} from './redux/store';
 
@@ -10,11 +10,15 @@ import BlogDts from './components/blogs/BlogDts';
 import NewBlog from './components/blogs/NewBlog';
 import LoginPage from './components/LoginPage/LoginPage';
 
+// Create a client so we can use the react-query hooks all through out the site
+const queryClient = new QueryClient()
+
 function App() {
   return (
     <Router>
       <Provider store={store}>
-        <div className="nahere">
+        <QueryClientProvider client={queryClient}>
+          <div className="nahere">
             <div><Header /></div>
             <div className="HmCvr0">
               <SideComp />
@@ -27,6 +31,7 @@ function App() {
                 </div>
             </div>
           </div>
+        </QueryClientProvider>
       </Provider>
     </Router>
   )
