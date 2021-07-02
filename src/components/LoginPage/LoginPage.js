@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-
 import {userInLogginPage, userHasLoggedIn} from '../../redux/actions'
 import './LoginPage.css'
 

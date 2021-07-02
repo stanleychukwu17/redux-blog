@@ -10,7 +10,7 @@ async function fecthUsers () {
 }
 
 const NewBlog = (props) => {
-    let {data, status} = useQuery('users', fecthUsers)
+    let {data, status} = useQuery('users', fecthUsers, {staleTime : 1000000})
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) {
