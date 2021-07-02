@@ -22,8 +22,6 @@ const LoginPage = (props) => {
     if (props.logged_in) history.go(-1);
     if (props.logged_in) { return (<div className=""></div>); }
 
-    console.log('rendered', uLog, pLog);
-
     return (
         <div className="LogBoss">
             <div className="it_fl LogBamCvr">
@@ -68,7 +66,6 @@ const LoginPage = (props) => {
             alert('Invalid username or password received'); return false;
         }
     }
-
 
     async function register () {
         let users = await fetch('http://localhost:8000/users')
