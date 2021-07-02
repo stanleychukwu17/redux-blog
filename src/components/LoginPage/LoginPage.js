@@ -51,7 +51,7 @@ const LoginPage = (props) => {
         let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
         let udts = fusers.filter(obj => (uLog === obj.name && pLog === obj.password));
 
-        console.log('called', inIt, fusers);
+        console.log('called', inIt, fusers, udts);
         if (inIt) {
             props.userInLogginPage(false);
             props.userHasLoggedIn(udts);
