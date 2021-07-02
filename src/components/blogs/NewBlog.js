@@ -17,6 +17,8 @@ const NewBlog = (props) => {
         return <Redirect to='/login' />;
     }
 
+    console.log('rendered')
+
     return (
         <div>
             <div className="Blgortp">Posting a new blog</div>
