@@ -59,8 +59,25 @@ const LoginPage = (props) => {
         }
     }
 
-    function register () {
-        console.log(newUser, newPass);
+    async function register () {
+        let users = await fetch('http://localhost:8000/users')
+        let fusers = await users.json()
+
+        // checks to see if the user matches any of the users in the datatbase
+        let inIt = fusers.some(obj => (newUser === obj.name));
+        if (inIt) {
+            alert('we already have a user with this username, please enter some other username')
+            return false;
+        } else {
+            fetch('http://localhost:8000/users', {
+                method: 'POST', headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify({'name': newUser, 'password':newPass})
+            }).then(re => {
+                console.log(re)
+            })
+        }
+
+        console.log('done');
     }
 }
 
