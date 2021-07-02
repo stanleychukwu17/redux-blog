@@ -35,8 +35,8 @@ const LoginPage = (props) => {
             <div className="it_fl LogBamCvr">
                 <div className="LogDkn">New user, then join our community</div>
                 <div>
-                    <div className="LogDinp"><p>Enter your username</p> <p><input type="text" value={newUser} onChange={(e)=>setNewUser(e.target.value).trim()} /></p></div>
-                    <div className="LogDinp"><p>New password</p> <p><input type="password" value={newPass} onChange={(e)=>setNewPass(e.target.value).trim()} /></p></div>
+                    <div className="LogDinp"><p>Enter your username</p> <p><input type="text" value={newUser} onChange={(e)=>setNewUser(e.target.value.trim())} /></p></div>
+                    <div className="LogDinp"><p>New password</p> <p><input type="password" value={newPass} onChange={(e)=>setNewPass(e.target.value.trim())} /></p></div>
                     <div className="LogDBtn"><button onClick={register} className="button_blue">Register</button></div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ const LoginPage = (props) => {
     }
 
     function register () {
-        console.log('we on it fam!');
+        console.log(newUser, newPass);
     }
 }
 
