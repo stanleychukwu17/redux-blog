@@ -5,6 +5,11 @@
       "id": 1,
       "name": "stanley",
       "password": "stanley"
+    },
+    {
+      "name": "james",
+      "password": "james",
+      "id": 2
     }
   ]
 }

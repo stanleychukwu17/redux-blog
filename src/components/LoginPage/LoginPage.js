@@ -78,8 +78,6 @@ const LoginPage = (props) => {
                 login()
             })
         }
-
-        console.log('done');
     }
 }
 
