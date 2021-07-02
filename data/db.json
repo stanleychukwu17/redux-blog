@@ -5,6 +5,16 @@
       "id": 1,
       "name": "stanley",
       "password": "stanley"
+    },
+    {
+      "name": "kai",
+      "password": "kai",
+      "id": 2
+    },
+    {
+      "name": "john",
+      "password": "john",
+      "id": 3
     }
   ]
 }
