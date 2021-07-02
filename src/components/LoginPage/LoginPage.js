@@ -20,22 +20,6 @@ const LoginPage = (props) => {
     if (props.logged_in) history.go(-1);
     if (props.logged_in) { return (<div className=""></div>); }
 
-    let login = async (event) => {
-        let users = await fetch('http://localhost:8000/users')
-        let fusers = await users.json()
-
-        // checks to see if the user matches any of the users in the datatbase
-        let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
-        let udts = fusers.filter(obj => (uLog === obj.name && pLog === obj.password));
-
-        if (inIt) {
-            props.userInLogginPage(false);
-            props.userHasLoggedIn(udts);
-            window.sessionStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
-            history.go(-1);
-        }
-    }
-
     return (
         <div className="LogBoss">
             <div className="it_fl LogBamCvr">
@@ -57,6 +41,21 @@ const LoginPage = (props) => {
         </div>
     );
 
+    async function login (event) => {
+        let users = await fetch('http://localhost:8000/users')
+        let fusers = await users.json()
+
+        // checks to see if the user matches any of the users in the datatbase
+        let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
+        let udts = fusers.filter(obj => (uLog === obj.name && pLog === obj.password));
+
+        if (inIt) {
+            props.userInLogginPage(false);
+            props.userHasLoggedIn(udts);
+            window.sessionStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
+            history.go(-1);
+        }
+    }
 
     function register () {
         console.log('we on it fam!');
