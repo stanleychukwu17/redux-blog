@@ -10,6 +10,11 @@
       "name": "james",
       "password": "james",
       "id": 2
+    },
+    {
+      "name": "john",
+      "password": "john",
+      "id": 3
     }
   ]
 }
