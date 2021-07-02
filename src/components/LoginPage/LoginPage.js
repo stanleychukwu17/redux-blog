@@ -51,11 +51,16 @@ const LoginPage = (props) => {
                 <div>
                     <div className="LogDinp"><p>Username</p> <p><input type="text" /></p></div>
                     <div className="LogDinp"><p>Password</p> <p><input type="password" /></p></div>
-                    <div className="LogDBtn"><button className="button_blue">Register</button></div>
+                    <div className="LogDBtn"><button onClick={register} className="button_blue">Register</button></div>
                 </div>
             </div>
         </div>
     );
+
+
+    function register () {
+        console.log('we on it fam!');
+    }
 }
 
 let mapStateToProps = (state) => {
