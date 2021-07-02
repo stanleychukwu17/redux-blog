@@ -41,7 +41,7 @@ const LoginPage = (props) => {
         </div>
     );
 
-    async function login (event) => {
+    async function login (event) {
         let users = await fetch('http://localhost:8000/users')
         let fusers = await users.json()
 
