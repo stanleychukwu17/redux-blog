@@ -72,6 +72,8 @@ const LoginPage = (props) => {
         let users = await fetch('http://localhost:8000/users')
         let fusers = await users.json()
 
+        if (!chk_info([newUser, newPass])) { alert('the length of your username or password might be too short');  return false; }
+
         // checks to see if the user matches any of the users in the datatbase
         let inIt = fusers.some(obj => (newUser === obj.name));
         if (inIt) {
