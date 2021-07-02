@@ -12,11 +12,6 @@ async function fecthUsers () {
 
 const NewBlog = (props) => {
     let {data, status} = useQuery('users', fecthUsers)
-    let [opts, setOpts] = useState([    {
-        "id": 1,
-        "name": "james",
-        "password": "stanley"
-      }])
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) {
