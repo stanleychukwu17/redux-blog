@@ -65,7 +65,7 @@ const LoginPage = (props) => {
             window.sessionStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
             history.go(-1);
         } else {
-            alert('the length of your username or password might be too short'); return false;
+            alert('Invalid username or password received'); return false;
         }
     }
 
