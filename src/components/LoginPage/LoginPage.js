@@ -45,9 +45,16 @@ const LoginPage = (props) => {
         </div>
     );
 
+    function chk_info ([uchk, pchk]) {
+        console.log(uchk, pchk);
+    }
+
     async function login (event) {
         let users = await fetch('http://localhost:8000/users')
         let fusers = await users.json()
+
+        console.log(chk_info(uLog, pLog));
+        return false;
 
         // checks to see if the user matches any of the users in the datatbase
         let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
