@@ -46,15 +46,17 @@ const LoginPage = (props) => {
     );
 
     function chk_info ([uchk, pchk]) {
-        console.log(uchk, pchk);
+        if (uchk.length <= 1 || pchk.length <= 1) { return false; } else { return true; }
     }
 
     async function login (event) {
         let users = await fetch('http://localhost:8000/users')
         let fusers = await users.json()
 
-        console.log(chk_info(uLog, pLog));
-        return false;
+        if (!chk_info([uLog, pLog])) {
+            alert('the length of your username or password might be too short');
+            return false;
+        }
 
         // checks to see if the user matches any of the users in the datatbase
         let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
