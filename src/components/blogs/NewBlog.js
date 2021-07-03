@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { useQuery } from 'react-query';
@@ -10,6 +11,9 @@ async function fecthUsers () {
 }
 
 const NewBlog = (props) => {
+    let [title, setTitle] = useState('');
+    let [author, setAuthor] = useState('');
+    let [dts, setDts] = useState('');
     let {data, status} = useQuery('users', fecthUsers, {staleTime : 1000000})
 
     // if the user is not logged in, we re-direct to the logging page
@@ -17,13 +21,11 @@ const NewBlog = (props) => {
         return <Redirect to='/login' />;
     }
 
-    console.log('rendered')
-
     return (
         <div>
             <div className="Blgortp">Posting a new blog</div>
             <div className="BlgorCv">
-                <div className="Nwbg_inps"><p>Title:</p> <p><input type="text" /></p></div>
+                <div className="Nwbg_inps"><p>Title:</p> <p><input type="text" onChange /></p></div>
                 <div className="Nwbg_inps">
                     <p>Author:</p>
                     <p>
