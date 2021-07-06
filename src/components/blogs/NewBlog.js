@@ -33,7 +33,7 @@ function saveTheBlog ({title, author, dts, setBlogSaved}) {
 
 const NewBlog = (props) => {
     let [title, setTitle] = useState('');
-    let [author, setAuthor] = useState('');
+    let [author, setAuthor] = useState('1');
     let [dts, setDts] = useState('');
     let [blogSaved, setBlogSaved] = useState(false);
     let {data, status} = useQuery('users', fecthUsers, {staleTime : 1000000})
