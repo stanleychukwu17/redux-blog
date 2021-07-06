@@ -25,16 +25,16 @@ const NewBlog = (props) => {
         <div>
             <div className="Blgortp">Posting a new blog</div>
             <div className="BlgorCv">
-                <div className="Nwbg_inps"><p>Title:</p> <p><input type="text" onChange /></p></div>
+                <div className="Nwbg_inps"><p>Title:</p> <p><input type="text" onChange={(e)=>{setTitle(e.target.value)}} value={title} /></p></div>
                 <div className="Nwbg_inps">
                     <p>Author:</p>
                     <p>
-                        <select>{
+                        <select onChange={(e)=>{setAuthor(e.target.value)}} value={author}>{
                             status === 'success' && data.map(itm => <option key={itm.id} value={itm.id}>{itm.name}</option>)
                         }</select>
                     </p>
                 </div>
-                <div className="Nwbg_inps"><p>Content:</p> <p><textarea></textarea></p></div>
+                <div className="Nwbg_inps"><p>Content:</p> <p><textarea onChange={(e)=>{setDts(e.target.value)}} value={dts}></textarea></p></div>
             </div>
             <div className="BlgBtn"><button className="button_blue">Save new blog</button></div>
         </div>
