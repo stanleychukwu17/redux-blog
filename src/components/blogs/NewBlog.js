@@ -19,7 +19,7 @@ function saveTheBlog ({title, author, dts}) {
     today = new Date();
     d = today.getDate(); m = today.getMonth(); y = today.getFullYear();
     today = `${d}-${m}-${y}`;
-    snd = {title, author, dts, today};
+    snd = {title, author, dts, 'date_p': today};
     console.log(snd);
 
     fetch('http://localhost:8000/blogs', {
