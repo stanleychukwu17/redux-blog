@@ -42,9 +42,7 @@ const NewBlog = (props) => {
 }
 
 let mapStateToProps = (state) => {
-    return {
-        'logged_in':state.logged_in
-    }
+    return {'logged_in':state.logged_in}
 }
 
 export default connect(mapStateToProps)(NewBlog);
