@@ -14,8 +14,6 @@ const LoginPage = (props) => {
     let [newUser, setNewUser] = useState('');
     let [newPass, setNewPass] = useState('');
 
-    console.log(history)
-
     useEffect(() => {
         if (!props.logged_in) userInLogginPage(true);
     }, []);
@@ -30,7 +28,17 @@ const LoginPage = (props) => {
                 <div className="LogDkn">Already a user, then Sign in</div>
                 <div>
                     <div className="LogDinp"><p>Username</p> <p><input type="text" value={uLog} onChange={(e)=>setULog(e.target.value.trim())} /></p></div>
-                    <div className="LogDinp"><p>Password</p> <p><input type="password" value={pLog} onChange={(e)=>setPLog(e.target.value.trim())} /></p></div>
+                    <div className="LogDinp">
+                        <p>Password</p>
+                        <p>
+                            <input type="password" value={pLog}
+                                onChange={(e)=>setPLog(e.target.value.trim())}
+                                onKeyDown={(e)=>{
+                                    if (e.key === 'Enter') { login(); }
+                                }}
+                            />
+                        </p>
+                    </div>
                     <div className="LogDBtn"><button onClick={login} className="button_blue">Done, Sign-in</button></div>
                 </div>
             </div>
