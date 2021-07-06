@@ -2,7 +2,15 @@ import { useQuery } from 'react-query';
 
 import './BlogDts.css';
 
+async function fecthBlogs () {
+    const users = await fetch('http://localhost:8000/blogs');
+    const fusers = users.json();
+    return fusers;
+}
+
 const BlogDts = (props) => {
+    let {data: 'blogs', status} = useQuery('all_blogs', fecthBlogs)
+    console.log(blogs, status);
 
     return (
         <div className="dahlah">
