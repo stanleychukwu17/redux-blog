@@ -35,7 +35,7 @@ const NewBlog = (props) => {
     let [author, setAuthor] = useState('1');
     let [dts, setDts] = useState('');
     let [blogSaved, setBlogSaved] = useState(false);
-    let {data, status} = useQuery('users', fecthUsers, {staleTime : 1000000})
+    let {data, status} = useQuery('users', fecthUsers, {staleTime : 1000000});
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) { return <Redirect to='/login' />; }
