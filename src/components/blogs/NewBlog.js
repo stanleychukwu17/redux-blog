@@ -15,7 +15,14 @@ function saveTheBlog ({title, author, dts}) {
     if (author.length <= 0) { alert('cannot submit your blog, your author name is too short'); return; }
     if (dts.length <= 0) { alert('cannot submit your blog, your blog content is too short'); return; }
 
+    let today = new Date();
+    const d = today.getDate(); const m = today.getMonth(); const y = today.getFullYear();
+    today = `${d}-${m}-${y}`;
 
+    fetch('http://localhost:8000/blogs', {
+        method: 'POST', headers: { 'Content-Type': 'application/json'},
+        // body: JSON.stringify({'name': newUser, 'password':newPass})
+    })
 }
 
 const NewBlog = (props) => {
