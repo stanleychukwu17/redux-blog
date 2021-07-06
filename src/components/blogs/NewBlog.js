@@ -10,6 +10,14 @@ async function fecthUsers () {
     return fusers;
 }
 
+function saveTheBlog ({title, author, dts}) {
+    if (title.length <= 0) { alert('cannot submit your blog, your title is too short'); return; }
+    if (author.length <= 0) { alert('cannot submit your blog, your author name is too short'); return; }
+    if (dts.length <= 0) { alert('cannot submit your blog, your blog content is too short'); return; }
+
+
+}
+
 const NewBlog = (props) => {
     let [title, setTitle] = useState('');
     let [author, setAuthor] = useState('');
@@ -36,7 +44,9 @@ const NewBlog = (props) => {
                 </div>
                 <div className="Nwbg_inps"><p>Content:</p> <p><textarea onChange={(e)=>{setDts(e.target.value)}} value={dts}></textarea></p></div>
             </div>
-            <div className="BlgBtn"><button className="button_blue">Save new blog</button></div>
+            <div className="BlgBtn"><button className="button_blue" onClick={() => {
+                saveTheBlog({title, author, dts})
+            }}>Save new blog</button></div>
         </div>
     );
 }
