@@ -14,6 +14,8 @@ const LoginPage = (props) => {
     let [newUser, setNewUser] = useState('');
     let [newPass, setNewPass] = useState('');
 
+    console.log(history)
+
     useEffect(() => {
         if (!props.logged_in) userInLogginPage(true);
     }, []);
