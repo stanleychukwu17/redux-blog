@@ -22,10 +22,10 @@ function saveTheBlog ({title, author, dts}) {
     snd = {title, author, dts, 'date_p': today};
     console.log(snd);
 
-    /* fetch('http://localhost:8000/blogs', {
+    fetch('http://localhost:8000/blogs', {
         method: 'POST', headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(snd)
-    }) */
+    })
 }
 
 const NewBlog = (props) => {
