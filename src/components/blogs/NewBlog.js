@@ -11,17 +11,20 @@ async function fecthUsers () {
 }
 
 function saveTheBlog ({title, author, dts}) {
+    let snd, today, d, m, y;
     if (title.length <= 0) { alert('cannot submit your blog, your title is too short'); return; }
     if (author.length <= 0) { alert('cannot submit your blog, your author name is too short'); return; }
     if (dts.length <= 0) { alert('cannot submit your blog, your blog content is too short'); return; }
 
-    let today = new Date();
-    const d = today.getDate(); const m = today.getMonth(); const y = today.getFullYear();
+    today = new Date();
+    d = today.getDate(); m = today.getMonth(); y = today.getFullYear();
     today = `${d}-${m}-${y}`;
+    snd = {title, author, dts, today};
+    console.log(snd);
 
     fetch('http://localhost:8000/blogs', {
         method: 'POST', headers: { 'Content-Type': 'application/json'},
-        // body: JSON.stringify({'name': newUser, 'password':newPass})
+        body: JSON.stringify(snd)
     })
 }
 
