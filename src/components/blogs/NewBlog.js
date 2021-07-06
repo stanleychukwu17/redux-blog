@@ -5,8 +5,8 @@ import { useQuery } from 'react-query';
 import './NewBlog.css'
 
 async function fecthUsers () {
-    let users = await fetch('http://localhost:8000/users');
-    let fusers = users.json();
+    const users = await fetch('http://localhost:8000/users');
+    const fusers = users.json();
     return fusers;
 }
 

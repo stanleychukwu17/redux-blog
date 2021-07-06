@@ -1,6 +1,9 @@
+import { useQuery } from 'react-query';
+
 import './BlogDts.css';
 
 const BlogDts = (props) => {
+
     return (
         <div className="dahlah">
             <div className="Blghdr">Latest blogs</div>
