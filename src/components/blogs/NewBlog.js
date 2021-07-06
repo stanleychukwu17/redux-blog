@@ -40,6 +40,7 @@ const NewBlog = (props) => {
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) { return <Redirect to='/login' />; }
+    if (blogSaved) { return <Redirect to='/' />; }
 
     return (
         <div>
