@@ -1,11 +1,18 @@
 {
   "blogs": [
     {
-      "id":1,
+      "id": 1,
       "title": "Buhari is no longer travelling to uk",
       "author": "Stanley",
-      "date_p":"3 days ago",
-      "dts":"this is good for the ganda"
+      "date_p": "3 days ago",
+      "dts": "this is good for the ganda"
+    },
+    {
+      "title": "this is good",
+      "author": "1",
+      "dts": "great content from the guys at new-york",
+      "date_p": "6-6-2021",
+      "id": 2
     }
   ],
   "users": [
