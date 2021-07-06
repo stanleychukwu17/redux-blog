@@ -9,8 +9,8 @@ async function fecthBlogs () {
 }
 
 const BlogDts = (props) => {
-    let {data: 'blogs', status} = useQuery('all_blogs', fecthBlogs)
-    console.log(blogs, status);
+    let {data, status} = useQuery('all_blogs', fecthBlogs)
+    console.log(data, status);
 
     return (
         <div className="dahlah">
