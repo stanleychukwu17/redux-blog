@@ -10,7 +10,7 @@ async function fecthUsers () {
     return fusers;
 }
 
-function saveTheBlog ({title, author, dts}) {
+function saveTheBlog ({title, author, dts, setBlogSaved}) {
     let snd, today, d, m, y;
     if (title.length <= 0) { alert('cannot submit your blog, your title is too short'); return; }
     if (author.length <= 0) { alert('cannot submit your blog, your author name is too short'); return; }
@@ -20,11 +20,14 @@ function saveTheBlog ({title, author, dts}) {
     d = today.getDate(); m = today.getMonth(); y = today.getFullYear();
     today = `${d}-${m}-${y}`;
     snd = {title, author, dts, 'date_p': today};
-    console.log(snd);
 
-    fetch('http://localhost:8000/blogs', {
+    return fetch('http://localhost:8000/blogs', {
         method: 'POST', headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(snd)
+    }).then(re => {
+        console.log(re);
+        alert('New blog saved');
+        setBlogSaved(true)
     })
 }
 
@@ -32,12 +35,11 @@ const NewBlog = (props) => {
     let [title, setTitle] = useState('');
     let [author, setAuthor] = useState('');
     let [dts, setDts] = useState('');
+    let [blogSaved, setBlogSaved] = useState(false);
     let {data, status} = useQuery('users', fecthUsers, {staleTime : 1000000})
 
     // if the user is not logged in, we re-direct to the logging page
-    if (!props.logged_in) {
-        return <Redirect to='/login' />;
-    }
+    if (!props.logged_in) { return <Redirect to='/login' />; }
 
     return (
         <div>
@@ -55,7 +57,7 @@ const NewBlog = (props) => {
                 <div className="Nwbg_inps"><p>Content:</p> <p><textarea onChange={(e)=>{setDts(e.target.value)}} value={dts}></textarea></p></div>
             </div>
             <div className="BlgBtn"><button className="button_blue" onClick={() => {
-                saveTheBlog({title, author, dts})
+                saveTheBlog({title, author, dts, setBlogSaved})
             }}>Save new blog</button></div>
         </div>
     );
