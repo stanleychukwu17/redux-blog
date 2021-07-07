@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import { useQuery } from 'react-query';
 
 import './BlogDts.css';
@@ -9,6 +10,9 @@ async function fecthBlogs () {
 }
 
 function BlogEch ({inf}) {
+    let [likes, setLikes] = useState('');
+    let [comments, setComments] = useState('');
+
     return (
         <div className="BlgEch">
             <div className="Blgtop">{inf.title}</div>
@@ -20,7 +24,7 @@ function BlogEch ({inf}) {
                         <div className="it_fl"><img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/like-512.png" alt="" /></div>
                         <div className="it_fl BlgcIcon"><img src="https://cdn2.iconfinder.com/data/icons/bitsies/128/Message-256.png" alt="" /></div>
                     </div>
-                    <div className="it_rl BlgcStats"><div>30 likes</div> <div>20 comments</div></div>
+                    <div className="it_rl BlgcStats"><div>{likes} likes</div> <div>{comments} comments</div></div>
                 </div>
             </div>
         </div>
@@ -32,7 +36,12 @@ const BlogDts = (props) => {
 
     return (
         <div className="dahlah">
-            <div className="Blghdr">Latest blogs</div>
+            <div className="">
+                <div className="it_fl Blghdr">Latest blogs</div>
+                <div className="it_rl ">
+                    <input type="text" placeholder="Search with title" /> <select><option value="">Sort blogs</option></select>
+                </div>
+            </div>
             <div className="">
                 <div>{status !== 'success' ? <h2>{status}</h2> : ''}</div>
                 {data && data.map((inf) => <BlogEch key={inf.id} inf={inf} />)}
