@@ -12,7 +12,7 @@ function BlogEch ({inf}) {
     return (
         <div className="BlgEch">
             <div className="Blgtop">{inf.title}</div>
-            <div className="Blgtt2"><div className="it_fl">Author: {inf.author}</div> <div className="it_rl">2 days ago</div></div>
+            <div className="Blgtt2"><div className="it_fl">Author: {inf.author}</div> <div className="it_rl">{inf.date_p}</div></div>
             <div className="BlgInr">
                 <div>{inf.dts}</div>
                 <div>
