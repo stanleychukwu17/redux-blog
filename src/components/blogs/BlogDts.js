@@ -8,13 +8,13 @@ async function fecthBlogs () {
     return fusers;
 }
 
-function BlogEch () {
+function BlogEch ({inf}) {
     return (
         <div className="BlgEch">
-            <div className="Blgtop">Buhari is no longer travelling to uk</div>
-            <div className="Blgtt2"><div className="it_fl">Author: Chukwu Stanley</div> <div className="it_rl">2 days ago</div></div>
+            <div className="Blgtop">{inf.title}</div>
+            <div className="Blgtt2"><div className="it_fl">Author: {inf.author}</div> <div className="it_rl">2 days ago</div></div>
             <div className="BlgInr">
-                <div>Our very sick president has decide to leave Nigeria to seek medical attension overseas so that he can continue to waste our precious money for nothing sake</div>
+                <div>{inf.dts}</div>
                 <div>
                     <div className="it_fl BlgcOvr">
                         <div className="it_fl"><img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/like-512.png" alt="" /></div>
@@ -34,8 +34,8 @@ const BlogDts = (props) => {
         <div className="dahlah">
             <div className="Blghdr">Latest blogs</div>
             <div className="">
-                <div>{status}</div>
-                {data && <BlogEch />}
+                <div>{status !== 'success' ? <h2>{status}</h2> : ''}</div>
+                {data && data.map((inf) => <BlogEch key={inf.id} inf={inf} />)}
             </div>
         </div>
     );

@@ -50,7 +50,7 @@ const NewBlog = (props) => {
                     <p>Author:</p>
                     <p>
                         <select onChange={(e)=>{setAuthor(e.target.value)}} value={author}>{
-                            status === 'success' && data.map(itm => <option key={itm.id} value={itm.id}>{itm.name}</option>)
+                            status === 'success' && data.map(itm => <option key={itm.id} value={itm.name}>{itm.name}</option>)
                         }</select>
                     </p>
                 </div>
