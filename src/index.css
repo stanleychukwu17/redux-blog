@@ -22,8 +22,5 @@ a:hover { text-decoration: underline }
 .button_blue:hover { box-shadow: none; top: -1px; }
 .button_blue:active { top: 1px;}
 
-input, textarea {
-	width: 400px; height: 30px; background: #f1f2f6; border: 1px solid transparent; border-radius: 3px;
-	padding: 5px 0 5px 10px; font-size: 20px; color: #273c75;
-}
+input, textarea { border: 1px solid transparent; border-radius: 3px; color: #273c75; }
 input:focus, textarea:focus { outline-color: #f5f6fa; }
