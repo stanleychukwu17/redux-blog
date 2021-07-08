@@ -10,8 +10,8 @@ const BlogView = () => {
             <div>
                 <div className="it_fl Blvw_cb1"><h2>Comments</h2></div>
                 <div className="it_fl Blvw_cb2">
-                    <div><textarea className="mk"></textarea></div>
-                    <div><button className="button_blue"></button></div>
+                    <div><textarea></textarea></div>
+                    <div><button className="button_blue">Post comment</button></div>
                 </div>
                 <div className="it_fl"><h2>33kc</h2></div>
             </div>
