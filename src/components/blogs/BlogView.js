@@ -13,7 +13,7 @@ const BlogView = () => {
                     <div><textarea></textarea></div>
                     <div><button className="button_blue">Post comment</button></div>
                 </div>
-                <div className="it_fl"><h2>33kc</h2></div>
+                <div className="it_fl Blvw_cb3"><h2>33kc</h2></div>
             </div>
         </>
     );
