@@ -7,10 +7,9 @@ const BlogView = () => {
     const queryClient = useQueryClient();
     const {id} = useParams();
 
-    const all_blogs = queryClient.getQueryData('all_blogs');
-    console.log(all_blogs);
-
-    console.log(id);
+    // eslint-disable-next-line eqeqeq
+    const all_blogs = queryClient.getQueryData('all_blogs')?.filter(ech => ech.id == id);
+    console.log(all_blogs, typeof all_blogs);
 
     return (
         <>
