@@ -1,6 +1,17 @@
+import { useQueryClient } from 'react-query';
+import {useParams} from 'react-router-dom'
 import './BlogView.css'
 
+
 const BlogView = () => {
+    const queryClient = useQueryClient();
+    const {id} = useParams();
+
+    const all_blogs = queryClient.getQueryData('all_blogs');
+    console.log(all_blogs);
+
+    console.log(id);
+
     return (
         <>
             <div className="Blvw_mjrC">
