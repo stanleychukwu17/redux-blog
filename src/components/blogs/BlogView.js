@@ -32,9 +32,7 @@ const BlogView = (props) => {
                     <div>
                         <div className="it_fl Blvw_cb1"><h2>Comments</h2></div>
                         <div className="it_fl Blvw_cb2">
-                            <div><textarea value={comment} onChange={(e) => {
-                                setComment(e.target.value);
-                            }}></textarea></div>
+                            <div><textarea value={comment} onChange={(e) => setComment(e.target.value) }></textarea></div>
                             <div><button className="button_blue" onClick={(e) => {
                                 submitComment({comment:comment.current});
                             }}>Post comment</button></div>
