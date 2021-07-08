@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 
 import './BlogDts.css';
 
@@ -13,9 +14,11 @@ function BlogEch ({inf}) {
     let [likes, setLikes] = useState('');
     let [comments, setComments] = useState('');
 
+    let link_to = `/BlogView/${inf.id}`
+
     return (
         <div className="BlgEch">
-            <div className="Blgtop">{inf.title}</div>
+            <div className="Blgtop"><Link to={link_to}>{inf.title}</Link></div>
             <div className="Blgtt2"><div className="it_fl">Author: {inf.author}</div> <div className="it_rl">{inf.date_p}</div></div>
             <div className="BlgInr">
                 <div>{inf.dts}</div>
