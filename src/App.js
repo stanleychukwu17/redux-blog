@@ -8,8 +8,8 @@ import Header from './components/header/Header';
 import SideComp from './components/sidebar/SideComp';
 import BlogDts from './components/blogs/BlogDts';
 import NewBlog from './components/blogs/NewBlog';
-import LoginPage from './components/blogs/BlogView';
-import BlogView from './components/LoginPage/LoginPage';
+import BlogView from './components/blogs/BlogView';
+import LoginPage from './components/LoginPage/LoginPage';
 
 // Create a client so we can use the react-query hooks all through out the site
 const queryClient = new QueryClient()
