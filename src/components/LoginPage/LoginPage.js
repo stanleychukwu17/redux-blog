@@ -70,7 +70,7 @@ const LoginPage = (props) => {
         if (inIt) {
             props.userInLogginPage(false);
             props.userHasLoggedIn(udts);
-            window.sessionStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
+            window.localStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
             history.go(-1);
         } else {
             alert('Invalid username or password received'); return false;

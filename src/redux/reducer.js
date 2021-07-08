@@ -3,7 +3,7 @@ let initialState = {
     'all_users':[]
 };
 
-let kamil = window.sessionStorage.getItem('logged_in_dts');
+let kamil = window.localStorage.getItem('logged_in_dts');
 if (kamil != null) {
     kamil = JSON.parse(kamil);
     initialState = {...initialState, logged_in:kamil.logged_in, 'udts':kamil.udts};
