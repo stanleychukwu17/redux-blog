@@ -14,7 +14,7 @@ function BlogEch ({inf}) {
     let [likes, setLikes] = useState('');
     let [comments, setComments] = useState('');
 
-    let link_to = `/BlogView/${inf.id}`
+    let link_to = `/BlogPage/${inf.id}`
 
     return (
         <div className="BlgEch">
