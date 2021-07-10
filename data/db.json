@@ -40,5 +40,6 @@
       "password": "james",
       "id": 2
     }
-  ]
+  ],
+  "likes": [0]
 }
