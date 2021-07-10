@@ -29,7 +29,8 @@ const BlogView = (props) => {
     let likeBlog = useCallback((ev) => {
         setLikes(c => c+1);
         update_likes({'blogId':id, 'ev':ev})
-    }, [setLikes])
+        
+    }, [])
 
     return (
         <>
