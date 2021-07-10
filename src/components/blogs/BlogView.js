@@ -32,7 +32,7 @@ const BlogView = (props) => {
                         <div className="Blvw_th1"><h1>{data.title}</h1></div>
                         <div className="Blvw_tdts">{data.dts}</div>
                         <div className="Blvw_lika">
-                            <div className="it_fl"></div>
+                            <div className="it_fl"><i onClick={() => {console.log('waleh waleh')}}><BiLike /></i></div>
                             <div className="it_rl">50 <i><BiLike /></i></div>
                         </div>
                     </div>
