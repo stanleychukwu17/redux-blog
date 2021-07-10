@@ -15,9 +15,9 @@ const SideComp = (props) => {
                     <div><p>Stanley posted a new blog</p></div>
                 </div>
                 <div className="ibm_hdr">
-                    <div className="it_fl ibm_Ech" title="total blogs"><BsReverseLayoutTextWindowReverse /> 5</div>
-                    <div className="it_fl ibm_Ech"><BiLike /> 25</div>
-                    <div className="it_fl ibm_Ech"><BiCommentAdd /> 25</div>
+                    <div className="it_fl ibm_Ech"><i><BsReverseLayoutTextWindowReverse /></i> 5</div>
+                    <div className="it_fl ibm_Ech"><i><BiLike /></i> 25</div>
+                    <div className="it_fl ibm_Ech"><i><BiCommentAdd /></i> 25</div>
                 </div>
             </div>
         )
