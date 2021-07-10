@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { BiLike } from "react-icons/bi";
 
-import {update_likes, Hello} from '../functions'
+import {update_likes} from '../functions'
 import './BlogView.css'
 
 async function fecthOnlyThisBlog (id) {
@@ -26,23 +26,21 @@ const BlogView = (props) => {
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
 
-    let likeBlog = useCallback(() => {
+    let likeBlog = useCallback((ev) => {
         setLikes(c => c+1);
-        console.log('called')
+        update_likes({'blogId':id, 'ev':ev})
     }, [setLikes])
-    // update_likes({'blogId':id, 'ev':ev})
 
     return (
         <>
             {isLoading && <h2>Loading...</h2>}
             {data && (
                 <>
-                    <Hello increment={likeBlog} />
                     <div className="Blvw_mjrC">
                         <div className="Blvw_th1"><h1>{data.title}</h1></div>
                         <div className="Blvw_tdts">{data.dts}</div>
                         <div className="Blvw_lika">
-                            <div className="it_fl" onClick={() => likeBlog()}><i><BiLike /></i></div>
+                            <div className="it_fl" onClick={(ev) => likeBlog(ev)}><i><BiLike /></i></div>
                             <div className="it_rl">{likes} <i><BiLike /></i></div>
                         </div>
                     </div>
