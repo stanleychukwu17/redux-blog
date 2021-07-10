@@ -11,7 +11,7 @@ async function fecthOnlyThisBlog (id) {
 }
 
 function submitComment (obj) {
-    console.log(obj);
+    console.log(obj)
 }
 
 const BlogView = (props) => {
