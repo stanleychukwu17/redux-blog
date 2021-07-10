@@ -8,3 +8,7 @@
 
 .SdrDts2 { padding: 10px 10px; font-size: 14px; }
 .SdrDts2 > div { padding: 15px 0; border-bottom: 2px solid #f1f2f6; }
+
+.ibm_hdr { position: absolute; top: auto; left: 0; right: 0; bottom: 0; }
+.ibm_Ech { width:50%; text-align:center; font-size: 15px; font-weight:bold; padding: 0 0 10px; }
+.ibm_Ech > p:nth-child(1) { font-size: 13px; padding: 0 0 10px; }
