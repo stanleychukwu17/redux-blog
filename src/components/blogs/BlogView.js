@@ -4,6 +4,8 @@ import {useParams} from 'react-router-dom'
 import './BlogView.css'
 import {connect} from 'react-redux'
 
+import { BiLike, BiCommentAdd } from "react-icons/bi";
+
 async function fecthOnlyThisBlog (id) {
     const users = await fetch(`http://localhost:8000/blogs/${id}`);
     const fusers = users.json();
@@ -29,6 +31,10 @@ const BlogView = (props) => {
                     <div className="Blvw_mjrC">
                         <div className="Blvw_th1"><h1>{data.title}</h1></div>
                         <div className="Blvw_tdts">{data.dts}</div>
+                        <div className="Blvw_lika">
+                            <div className="it_fl"></div>
+                            <div className="it_rl">50 <i><BiLike /></i></div>
+                        </div>
                     </div>
                     <div>
                         <div className="it_fl Blvw_cb1"><h2>Comments</h2></div>
