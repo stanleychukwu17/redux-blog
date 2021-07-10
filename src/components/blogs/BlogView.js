@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import {useParams} from 'react-router-dom'
-import './BlogView.css'
 import {connect} from 'react-redux'
+import { BiLike } from "react-icons/bi";
 
-import { BiLike, BiCommentAdd } from "react-icons/bi";
+import {update_likes} from '../functions'
+import './BlogView.css'
 
 async function fecthOnlyThisBlog (id) {
     const users = await fetch(`http://localhost:8000/blogs/${id}`);
@@ -12,16 +13,12 @@ async function fecthOnlyThisBlog (id) {
     return fusers;
 }
 
-function submitComment (obj) {
-    console.log(obj)
-}
-
 const BlogView = (props) => {
     const {id} = useParams();
     let userId = props.userId;
     let [comment, setComment] = useState('');
 
-    const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000});
+    const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
     return (
         <>
@@ -32,7 +29,7 @@ const BlogView = (props) => {
                         <div className="Blvw_th1"><h1>{data.title}</h1></div>
                         <div className="Blvw_tdts">{data.dts}</div>
                         <div className="Blvw_lika">
-                            <div className="it_fl" onClick={() => {console.log('waleh waleh')}}><i><BiLike /></i></div>
+                            <div className="it_fl" onClick={(ev) => { update_likes() }}><i><BiLike /></i></div>
                             <div className="it_rl">50 <i><BiLike /></i></div>
                         </div>
                     </div>
