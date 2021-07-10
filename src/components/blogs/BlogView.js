@@ -13,6 +13,10 @@ async function fecthOnlyThisBlog (id) {
     return fusers;
 }
 
+function submitComment (obj) {
+    console.log(obj)
+}
+
 const BlogView = (props) => {
     const {id} = useParams();
     let userId = props.userId;
