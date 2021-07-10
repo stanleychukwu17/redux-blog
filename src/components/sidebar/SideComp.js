@@ -1,4 +1,6 @@
 import {connect} from 'react-redux'
+import { BsReverseLayoutTextWindowReverse } from "react-icons/bs";
+import { BiLike, BiCommentAdd } from "react-icons/bi";
 import './SideComp.css'
 
 
@@ -13,8 +15,9 @@ const SideComp = (props) => {
                     <div><p>Stanley posted a new blog</p></div>
                 </div>
                 <div className="ibm_hdr">
-                    <div className="it_fl ibm_Ech"><p>Total blogs</p><p>5</p></div>
-                    <div className="it_fl ibm_Ech"><p>Total likes</p><p>15</p></div>
+                    <div className="it_fl ibm_Ech" title="total blogs"><BsReverseLayoutTextWindowReverse /> 5</div>
+                    <div className="it_fl ibm_Ech"><BiLike /> 25</div>
+                    <div className="it_fl ibm_Ech"><BiCommentAdd /> 25</div>
                 </div>
             </div>
         )
