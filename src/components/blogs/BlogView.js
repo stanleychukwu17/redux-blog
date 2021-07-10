@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useQuery } from 'react-query';
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { BiLike } from "react-icons/bi";
 
-import {update_likes} from '../functions'
+import {update_likes, Hello} from '../functions'
 import './BlogView.css'
 
 async function fecthOnlyThisBlog (id) {
@@ -21,20 +21,29 @@ const BlogView = (props) => {
     const {id} = useParams();
     let userId = props.userId;
     let [comment, setComment] = useState('');
+    let [likes, setLikes] = useState(0);
 
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
+
+
+    let likeBlog = useCallback(() => {
+        setLikes(c => c+1);
+        console.log('created');
+    }, [setLikes])
+    // update_likes({'blogId':id, 'ev':ev})
 
     return (
         <>
             {isLoading && <h2>Loading...</h2>}
             {data && (
                 <>
+                    <Hello increment={likeBlog} />
                     <div className="Blvw_mjrC">
                         <div className="Blvw_th1"><h1>{data.title}</h1></div>
                         <div className="Blvw_tdts">{data.dts}</div>
                         <div className="Blvw_lika">
-                            <div className="it_fl" onClick={(ev) => { update_likes() }}><i><BiLike /></i></div>
-                            <div className="it_rl">50 <i><BiLike /></i></div>
+                            <div className="it_fl" onClick={() => likeBlog()}><i><BiLike /></i></div>
+                            <div className="it_rl">{likes} <i><BiLike /></i></div>
                         </div>
                     </div>
                     <div>
