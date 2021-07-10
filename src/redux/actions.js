@@ -7,3 +7,5 @@ export const userInLogginPage = (wch) => ({'type': 'USER_IN_LOGGING_PAGE', 'payl
 export const userHasLoggedIn = (udts) => ({'type': 'USER_HAS_LOGGED_IN', 'payload':udts});
 
 export const userHasLoggedOut = () => ({'type': 'USER_HAS_LOGGED_OUT'});
+
+export const newLike4BlogAdded = (likes) => ({'type': 'NEW_LIKE_4_BLOG_ADDED', 'payload':likes});

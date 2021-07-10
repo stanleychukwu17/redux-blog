@@ -1,5 +1,5 @@
 let initialState = {
-    'logged_in':false, 'logged_in_page_open':false, 'udts':{},
+    'logged_in':false, 'logged_in_page_open':false, 'udts':{}, 'likes':0,
     'all_users':[]
 };
 
@@ -20,6 +20,9 @@ export const main_reducer = (state = initialState, action) => {
         }
         case 'USER_HAS_LOGGED_OUT' : {
             return {...state, 'logged_in':false}
+        }
+        case 'NEW_LIKE_4_BLOG_ADDED' : {
+            return {...state, 'likes':action.payload}
         }
         default : return state
     }
