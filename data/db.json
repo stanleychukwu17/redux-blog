@@ -41,10 +41,5 @@
       "id": 2
     }
   ],
-  "likes": [
-    {
-      "id": 1,
-      "total_likes": 50
-    }
-  ]
+  "likes": []
 }

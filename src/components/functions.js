@@ -10,8 +10,10 @@ export const update_likes = async (obj) => {
 
     console.log(dts, new_likes);
 
+    fetch('http://localhost:8000/likes/1', {method: 'DELETE'})
+
     fetch('http://localhost:8000/likes/', {
         method: 'POST', headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({'total_likes': new_likes})
+        body: JSON.stringify({'id':1, 'total_likes': new_likes})
     })
 }
