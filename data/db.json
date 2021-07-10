@@ -41,5 +41,10 @@
       "id": 2
     }
   ],
-  "likes": []
+  "likes": [
+    {
+      "total_likes": 63,
+      "id": 2
+    }
+  ]
 }
