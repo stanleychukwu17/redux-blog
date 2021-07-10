@@ -6,5 +6,12 @@ export const update_likes = async (obj) => {
     let dts = await fetch('http://localhost:8000/likes/1').then(re => re.json());
     ev.target.style.visibility = 'visible';
 
-    console.log(dts);
+    let new_likes = dts.total_likes + 1;
+
+    console.log(dts, new_likes);
+
+    fetch('http://localhost:8000/likes/', {
+        method: 'POST', headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({'total_likes': new_likes})
+    })
 }
