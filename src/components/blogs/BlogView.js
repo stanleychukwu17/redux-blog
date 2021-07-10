@@ -1,10 +1,10 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { BiLike } from "react-icons/bi";
 
-import {UpdateLikes} from '../functions'
+import {updateLikes} from '../functions'
 import {newLike4BlogAdded} from '../../redux/actions'
 
 import './BlogView.css'
@@ -26,10 +26,9 @@ const BlogView = (props) => {
 
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
-
     let likeBlog = (ev) => {
-        props.newLike4BlogAdded(15);
-        UpdateLikes({'add_new':true, 'ev':ev})
+        // props.newLike4BlogAdded(15);
+        updateLikes({'add_new':true, 'ev':'ev'})
     };
 
     return (
