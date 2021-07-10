@@ -2,9 +2,13 @@ import {connect} from 'react-redux'
 import { BsReverseLayoutTextWindowReverse } from "react-icons/bs";
 import { BiLike, BiCommentAdd } from "react-icons/bi";
 import './SideComp.css'
+import {newLike4BlogAdded} from '../../redux/actions'
+
 
 
 const SideComp = (props) => {
+
+    props.newLike4BlogAdded({'blake':'van'}); // update the current likes for us
 
     return (
         !props.logged_in_page_open && (
@@ -16,7 +20,7 @@ const SideComp = (props) => {
                 </div>
                 <div className="ibm_hdr">
                     <div className="it_fl ibm_Ech"><i><BsReverseLayoutTextWindowReverse /></i> 5</div>
-                    <div className="it_fl ibm_Ech"><i><BiLike /></i> 25</div>
+                    <div className="it_fl ibm_Ech"><i><BiLike /></i> {props.likes}</div>
                     <div className="it_fl ibm_Ech"><i><BiCommentAdd /></i> 25</div>
                 </div>
             </div>
@@ -25,6 +29,11 @@ const SideComp = (props) => {
 }
 
 let mapStateToProps = (state) => {
-    return {'logged_in_page_open':state.logged_in_page_open}
+    return {'logged_in_page_open':state.logged_in_page_open, 'likes':state.likes}
 }
-export default connect(mapStateToProps)(SideComp);
+
+let mapDispatchToProps = dispatch => {
+    return {newLike4BlogAdded : (dts) => dispatch(newLike4BlogAdded(dts))}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideComp);

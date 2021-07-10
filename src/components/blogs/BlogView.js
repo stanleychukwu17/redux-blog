@@ -4,7 +4,6 @@ import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { BiLike } from "react-icons/bi";
 
-import {updateLikes} from '../functions'
 import {newLike4BlogAdded} from '../../redux/actions'
 
 import './BlogView.css'
@@ -27,8 +26,8 @@ const BlogView = (props) => {
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
     let likeBlog = (ev) => {
-        // props.newLike4BlogAdded(15);
-        updateLikes({'add_new':true, 'ev':'ev'})
+        props.newLike4BlogAdded({'add_new':true, 'ev':ev});
+        // updateLikes({'add_new':true, 'ev':ev, 'newLike4BlogAdded':props.newLike4BlogAdded})
     };
 
     return (
@@ -66,9 +65,7 @@ let mapStateToProps = state => {
 }
 
 let mapDispatchToProps = dispatch => {
-    return {
-        newLike4BlogAdded : (cur_lks) => dispatch(newLike4BlogAdded(cur_lks))
-    }
+    return {newLike4BlogAdded : (cur_lks) => dispatch(newLike4BlogAdded(cur_lks))}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlogView);
