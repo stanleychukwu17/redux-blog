@@ -8,6 +8,7 @@ export const userHasLoggedIn = (udts) => ({'type': 'USER_HAS_LOGGED_IN', 'payloa
 
 export const userHasLoggedOut = () => ({'type': 'USER_HAS_LOGGED_OUT'});
 
+
 export const newLike4BlogAdded = (obj) => {
     return (dispatch) => {
         console.log('called');
