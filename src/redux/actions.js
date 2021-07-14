@@ -10,7 +10,6 @@ export const userHasLoggedOut = () => ({'type': 'USER_HAS_LOGGED_OUT'});
 
 export const newLike4BlogAdded = (obj) => {
     return (dispatch) => {
-        console.log('called');
         let likes = 0;
         if (obj.add_new) { obj.ev.target.style.visibility = 'hidden'; }
     
