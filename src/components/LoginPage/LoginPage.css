@@ -14,3 +14,5 @@
 
 .LogDBtn { padding: 10px 0; }
 .LogDBtn button { padding: 10px 15px 8px; font-size: 17px; border-radius: 2px; box-shadow: 3px 3px 0 rgba(0,0,0,0.05); }
+.disable_btn { opacity: .5; cursor: default; }
+.disable_btn:hover { top: 0; }

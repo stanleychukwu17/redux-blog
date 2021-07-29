@@ -3,8 +3,48 @@ import {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import {connect} from 'react-redux'
 
+import setup from '../setup'
 import {userInLogginPage, userHasLoggedIn} from '../../redux/actions'
 import './LoginPage.css'
+
+const back_end_url = setup.back_end_url;
+
+function chk_info ([uchk, pchk]) {
+    if (uchk.length <= 1 || pchk.length <= 1) { return false; } else { return true; }
+}
+
+// function for registering a new user
+async function register ([newUser, newPass]) {
+    // checks to see if the username or password is okay to be saved
+    if (!chk_info([newUser, newPass])) { alert('the length of your username or password might be too short');  return false; }
+
+    // locks all the buttons on this page
+    setup.frezeBtn(document.querySelectorAll('button'))
+
+    try {
+        let send = await fetch(`${back_end_url}/users/register`, {
+            mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({"name": newUser, "password":newPass})
+        }).catch(err => {
+            console.log(err);
+        });
+        let dts = await send.json()
+
+        // unlocks all the buttons on this page
+        setup.unfrezeBtn(document.querySelectorAll('button'))
+
+        console.log(dts);
+        return {dts}
+    } catch (err) {
+        console.log(err);
+        //unlocks all the buttons on this page
+        setup.unfrezeBtn(document.querySelectorAll('button'))
+    }
+
+    // uLog = newUser;
+    // pLog = newPass;
+    // login()
+}
 
 const LoginPage = (props) => {
     let history = useHistory();
@@ -47,20 +87,17 @@ const LoginPage = (props) => {
                 <div>
                     <div className="LogDinp"><p>Enter your username</p> <p><input type="text" value={newUser} onChange={(e)=>setNewUser(e.target.value.trim())} /></p></div>
                     <div className="LogDinp"><p>New password</p> <p><input type="password" value={newPass} onChange={(e)=>setNewPass(e.target.value.trim())} /></p></div>
-                    <div className="LogDBtn"><button onClick={register} className="button_blue">Register</button></div>
+                    <div className="LogDBtn"><button onClick={ () => {register([newUser, newPass])} } className="button_blue">Register</button></div>
                 </div>
             </div>
         </div>
     );
 
-    function chk_info ([uchk, pchk]) {
-        if (uchk.length <= 1 || pchk.length <= 1) { return false; } else { return true; }
-    }
-
     async function login (event) {
         let users = await fetch('http://localhost:8000/users')
         let fusers = await users.json()
 
+        // checks to see if the username or password is okay to be saved
         if (!chk_info([uLog, pLog])) { alert('the length of your username or password might be too short'); return false; }
 
         // checks to see if the user matches any of the users in the datatbase
@@ -77,28 +114,6 @@ const LoginPage = (props) => {
         }
     }
 
-    async function register () {
-        let users = await fetch('http://localhost:8000/users')
-        let fusers = await users.json()
-
-        if (!chk_info([newUser, newPass])) { alert('the length of your username or password might be too short');  return false; }
-
-        // checks to see if the user matches any of the users in the datatbase
-        let inIt = fusers.some(obj => (newUser === obj.name));
-        if (inIt) {
-            alert('we already have a user with this username, please enter some other username')
-            return false;
-        } else {
-            fetch('http://localhost:8000/users', {
-                method: 'POST', headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify({'name': newUser, 'password':newPass})
-            }).then(re => {
-                uLog = newUser;
-                pLog = newPass;
-                login()
-            })
-        }
-    }
 }
 
 let mapStateToProps = (state) => {
