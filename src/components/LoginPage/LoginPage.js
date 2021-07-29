@@ -24,9 +24,7 @@ async function register ([newUser, newPass]) {
     try {
         let send = await fetch(`${back_end_url}/users/register`, {
             mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({"name": newUser, "password":newPass})
-        }).catch(err => {
-            console.log(err);
+            body: JSON.stringify({"username": newUser, "password":newPass})
         });
         let dts = await send.json()
 
@@ -35,7 +33,6 @@ async function register ([newUser, newPass]) {
 
         return dts
     } catch (err) {
-        console.log(err);
         //unlocks all the buttons on this page
         setup.unfrezeBtn(document.querySelectorAll('button'));
 
@@ -43,18 +40,16 @@ async function register ([newUser, newPass]) {
     }
 }
 
-async function login ([uLog, pLog]) {
+async function login ([user, pass]) {
     // checks to see if the username or password is okay to be saved
-    if (!chk_info([uLog, pLog])) { alert('the length of your username or password might be too short'); return false; }
+    if (!chk_info([user, pass])) { alert('the length of your username or password might be too short'); return false; }
 
-    // if (inIt) {
-    //     props.userInLogginPage(false);
-    //     props.userHasLoggedIn(udts);
-    //     window.localStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
-    //     history.go(-1);
-    // } else {
-    //     alert('Invalid username or password received'); return false;
-    // }
+    let send = await fetch(`${back_end_url}/users/login`, {
+        mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
+        body: JSON.stringify({"username":user, "password":pass})
+    });
+
+    return send.json()
 }
 
 const LoginPage = (props) => {
@@ -101,7 +96,7 @@ const LoginPage = (props) => {
                     <div className="LogDBtn"><button onClick={() => {
                         register([newUser, newPass]).then(re => {
                             if (re.msg === 'okay') {
-                                setULog(newUser); setPLog(newPass);
+                                inChk([newUser, newPass]);
                             } else {
                                 alert(`Error: ${re.cause}`);
                             }
@@ -111,6 +106,21 @@ const LoginPage = (props) => {
             </div>
         </div>
     );
+
+    async function inChk ([user, pass]) {
+        login([user, pass]).then(re => {
+            console.log(re);
+
+            // if (inIt) {
+            //     props.userInLogginPage(false);
+            //     props.userHasLoggedIn(udts);
+            //     window.localStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
+            //     history.go(-1);
+            // } else {
+            //     alert('Invalid username or password received'); return false;
+            // }
+        });
+    }
 }
 
 let mapStateToProps = (state) => {
