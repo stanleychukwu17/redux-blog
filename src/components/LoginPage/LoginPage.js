@@ -28,14 +28,10 @@ async function register ([newUser, newPass]) {
         });
         let dts = await send.json()
 
-        // unlocks all the buttons on this page
-        setup.unfrezeBtn(document.querySelectorAll('button'))
-
+        setup.unfrezeBtn(document.querySelectorAll('button')); // unlocks all the buttons on this page
         return dts
     } catch (err) {
-        //unlocks all the buttons on this page
-        setup.unfrezeBtn(document.querySelectorAll('button'));
-
+        setup.unfrezeBtn(document.querySelectorAll('button')); // unlocks all the buttons on this page
         return {msg:'bad', 'cause':err}
     }
 }
@@ -80,12 +76,12 @@ const LoginPage = (props) => {
                             <input type="password" value={pLog}
                                 onChange={(e)=>setPLog(e.target.value.trim())}
                                 onKeyDown={(e)=>{
-                                    if (e.key === 'Enter') { login(); }
+                                    if (e.key === 'Enter') { inChk([uLog, pLog]); }
                                 }}
                             />
                         </p>
                     </div>
-                    <div className="LogDBtn"><button onClick={login} className="button_blue">Done, Sign-in</button></div>
+                    <div className="LogDBtn"><button onClick={() => inChk([uLog, pLog])} className="button_blue">Done, Sign-in</button></div>
                 </div>
             </div>
             <div className="it_fl LogBamCvr">
