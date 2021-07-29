@@ -105,16 +105,14 @@ const LoginPage = (props) => {
 
     async function inChk ([user, pass]) {
         login([user, pass]).then(re => {
-            console.log(re);
-
-            // if (inIt) {
-            //     props.userInLogginPage(false);
-            //     props.userHasLoggedIn(udts);
-            //     window.localStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
-            //     history.go(-1);
-            // } else {
-            //     alert('Invalid username or password received'); return false;
-            // }
+            if (re.msg === 'okay') {
+                props.userInLogginPage(false);
+                props.userHasLoggedIn(re);
+                window.localStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':re}));
+                history.go(-1);
+            } else {
+                alert(re.cause);
+            }
         });
     }
 }
