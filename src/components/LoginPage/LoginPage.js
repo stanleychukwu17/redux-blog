@@ -33,17 +33,28 @@ async function register ([newUser, newPass]) {
         // unlocks all the buttons on this page
         setup.unfrezeBtn(document.querySelectorAll('button'))
 
-        console.log(dts);
-        return {dts}
+        return dts
     } catch (err) {
         console.log(err);
         //unlocks all the buttons on this page
-        setup.unfrezeBtn(document.querySelectorAll('button'))
-    }
+        setup.unfrezeBtn(document.querySelectorAll('button'));
 
-    // uLog = newUser;
-    // pLog = newPass;
-    // login()
+        return {msg:'bad', 'cause':err}
+    }
+}
+
+async function login ([uLog, pLog]) {
+    // checks to see if the username or password is okay to be saved
+    if (!chk_info([uLog, pLog])) { alert('the length of your username or password might be too short'); return false; }
+
+    // if (inIt) {
+    //     props.userInLogginPage(false);
+    //     props.userHasLoggedIn(udts);
+    //     window.localStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
+    //     history.go(-1);
+    // } else {
+    //     alert('Invalid username or password received'); return false;
+    // }
 }
 
 const LoginPage = (props) => {
@@ -86,34 +97,20 @@ const LoginPage = (props) => {
                 <div className="LogDkn">New user, then join our community</div>
                 <div>
                     <div className="LogDinp"><p>Enter your username</p> <p><input type="text" value={newUser} onChange={(e)=>setNewUser(e.target.value.trim())} /></p></div>
-                    <div className="LogDinp"><p>New password</p> <p><input type="password" value={newPass} onChange={(e)=>setNewPass(e.target.value.trim())} /></p></div>
-                    <div className="LogDBtn"><button onClick={ () => {register([newUser, newPass])} } className="button_blue">Register</button></div>
+                    <div className="LogDinp"><p>New password</p> <p><input type="password" value={newPass} onChange={(e)=>setNewPass(e.target.value)} /></p></div>
+                    <div className="LogDBtn"><button onClick={() => {
+                        register([newUser, newPass]).then(re => {
+                            if (re.msg === 'okay') {
+                                setULog(newUser); setPLog(newPass);
+                            } else {
+                                alert(`Error: ${re.cause}`);
+                            }
+                        })
+                    }} className="button_blue">Register</button></div>
                 </div>
             </div>
         </div>
     );
-
-    async function login (event) {
-        let users = await fetch('http://localhost:8000/users')
-        let fusers = await users.json()
-
-        // checks to see if the username or password is okay to be saved
-        if (!chk_info([uLog, pLog])) { alert('the length of your username or password might be too short'); return false; }
-
-        // checks to see if the user matches any of the users in the datatbase
-        let inIt = fusers.some(obj => (uLog === obj.name && pLog === obj.password));
-        let udts = fusers.filter(obj => (uLog === obj.name && pLog === obj.password));
-
-        if (inIt) {
-            props.userInLogginPage(false);
-            props.userHasLoggedIn(udts);
-            window.localStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':udts[0]}));
-            history.go(-1);
-        } else {
-            alert('Invalid username or password received'); return false;
-        }
-    }
-
 }
 
 let mapStateToProps = (state) => {
