@@ -50,15 +50,20 @@ async function login ([user, pass]) {
 
 const LoginPage = (props) => {
     let history = useHistory();
-    let userInLogginPage = props.userInLogginPage;
     let [uLog, setULog] = useState('');
     let [pLog, setPLog] = useState('');
     let [newUser, setNewUser] = useState('');
     let [newPass, setNewPass] = useState('');
 
+    // runs only once, after the components has been mounted
     useEffect(() => {
-        if (!props.logged_in) userInLogginPage(true);
+        props.userInLogginPage(true);
     }, []);
+
+    // components un-mounted
+    useEffect(() => {
+        return () => { props.userInLogginPage(false); }
+    }, [])
 
     // if the use is logged_in, then no need to see this page
     if (props.logged_in) history.push('/');
@@ -106,7 +111,6 @@ const LoginPage = (props) => {
     async function inChk ([user, pass]) {
         login([user, pass]).then(re => {
             if (re.msg === 'okay') {
-                props.userInLogginPage(false);
                 props.userHasLoggedIn(re);
                 window.localStorage.setItem('logged_in_dts', JSON.stringify({'logged_in':'yes', 'udts':re}));
                 history.go(-1);

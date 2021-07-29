@@ -24,7 +24,6 @@ const Header = (props) => {
     function LogoutUser (event) {
         props.userHasLoggedOut();
         event.preventDefault();
-        window.localStorage.clear();
     }
 }
 
