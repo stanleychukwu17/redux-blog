@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 
 import setup from '../setup'
 import './NewBlog.css'
-console.log('oma na set up', setup)
 
 function saveTheBlog ({title, dts, setBlogSaved}) {
     let snd, today, d, m, y;
@@ -18,11 +17,12 @@ function saveTheBlog ({title, dts, setBlogSaved}) {
 
 
     return fetch(`${setup.back_end_url}/blogs/new-blog`, {
-        method: 'POST', headers: { 'Content-Type': 'application/json'},
+        mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"},
         body: JSON.stringify(snd)
     }).then(re => {
-        alert('New blog saved');
-        setBlogSaved(true)
+        console.log(re);
+        // alert('New blog saved');
+        // setBlogSaved(true)
     })
 }
 
