@@ -18,7 +18,7 @@ function chk_info ([uchk, pchk]) {
 // function for registering a new user
 async function register ([newUser, newPass]) {
     // checks to see if the username or password is okay to be saved
-    if (!chk_info([newUser, newPass])) { alert('the length of your username or password might be too short');  return false; }
+    if (!chk_info([newUser, newPass])) { return {'msg':'bad', 'cause':'the length of your username or password might be too short'}; }
 
     // locks all the buttons on this page
     setup.frezeBtn(document.querySelectorAll('button'))
