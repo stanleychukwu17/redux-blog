@@ -16,7 +16,6 @@ function BlogEch ({inf}) {
     let [comments, setComments] = useState('');
 
     let link_to = `/BlogPage/${inf.id}`
-    console.log(inf)
 
     return (
         <div className="BlgEch">
@@ -37,7 +36,7 @@ function BlogEch ({inf}) {
 }
 
 const BlogDts = (props) => {
-    let {data, status} = useQuery('all_blogs', fecthBlogs);
+    let {data, status} = useQuery('all_blogs', fecthBlogs, {staleTime:300000});
     // console.log(data, status);
 
     return (
