@@ -4,12 +4,6 @@ import { Redirect } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import './NewBlog.css'
 
-async function fecthUsers () {
-    const users = await fetch('http://localhost:8000/users');
-    const fusers = users.json();
-    return fusers;
-}
-
 function saveTheBlog ({title, author, dts, setBlogSaved}) {
     let snd, today, d, m, y;
     if (title.length <= 0) { alert('cannot submit your blog, your title is too short'); return; }
@@ -35,7 +29,7 @@ const NewBlog = (props) => {
     let [author, setAuthor] = useState('1');
     let [dts, setDts] = useState('');
     let [blogSaved, setBlogSaved] = useState(false);
-    let {data, status} = useQuery('users', fecthUsers, {staleTime : 1000000});
+    let status = 'no_way'
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) { return <Redirect to='/login' />; }
@@ -49,9 +43,7 @@ const NewBlog = (props) => {
                 <div className="Nwbg_inps">
                     <p>Author:</p>
                     <p>
-                        <select onChange={(e)=>{setAuthor(e.target.value)}} value={author}>{
-                            status === 'success' && data.map(itm => <option key={itm.id} value={itm.name}>{itm.name}</option>)
-                        }</select>
+                        <select onChange={(e)=>{setAuthor(e.target.value)}} value={author}>{}</select>
                     </p>
                 </div>
                 <div className="Nwbg_inps"><p>Content:</p> <p><textarea onChange={(e)=>{setDts(e.target.value)}} value={dts}></textarea></p></div>
