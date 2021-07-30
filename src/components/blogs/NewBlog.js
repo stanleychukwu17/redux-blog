@@ -19,7 +19,7 @@ function saveTheBlog ({title, dts, setBlogSaved}) {
     return fetch(`${setup.back_end_url}/blogs/new-blog`, {
         mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"},
         body: JSON.stringify(snd)
-    }).then(re => {
+    }).then(re => re.json()).then(re => {
         console.log(re);
         // alert('New blog saved');
         // setBlogSaved(true)
