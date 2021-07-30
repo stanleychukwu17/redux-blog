@@ -2,10 +2,11 @@ import {useState} from 'react'
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
+import setup from '../setup'
 import './BlogDts.css';
 
 async function fecthBlogs () {
-    const users = await fetch('http://localhost:8000/blogs');
+    const users = await fetch(`${setup.back_end_url}/blogs/all-blogs`);
     const fusers = users.json();
     return fusers;
 }
@@ -15,13 +16,14 @@ function BlogEch ({inf}) {
     let [comments, setComments] = useState('');
 
     let link_to = `/BlogPage/${inf.id}`
+    console.log(inf)
 
     return (
         <div className="BlgEch">
             <div className="Blgtop"><Link to={link_to}>{inf.title}</Link></div>
             <div className="Blgtt2"><div className="it_fl">Author: {inf.author}</div> <div className="it_rl">{inf.date_p}</div></div>
             <div className="BlgInr">
-                <div>{inf.dts}</div>
+                <div>{inf.content}</div>
                 <div>
                     <div className="it_fl BlgcOvr">
                         <div className="it_fl"><img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/like-512.png" alt="" /></div>
@@ -36,6 +38,7 @@ function BlogEch ({inf}) {
 
 const BlogDts = (props) => {
     let {data, status} = useQuery('all_blogs', fecthBlogs);
+    // console.log(data, status);
 
     return (
         <div className="dahlah">
@@ -47,7 +50,7 @@ const BlogDts = (props) => {
             </div>
             <div className="">
                 <div>{status !== 'success' ? <h2>{status}</h2> : ''}</div>
-                {data && data.map((inf) => <BlogEch key={inf.id} inf={inf} />)}
+                {data && data.dts.map((inf) => <BlogEch key={inf._id} inf={inf} />)}
             </div>
         </div>
     );
