@@ -7,8 +7,10 @@ import setup from '../setup'
 import {userInLogginPage, userHasLoggedIn} from '../../redux/actions'
 import './LoginPage.css'
 
+// base url for backend request
 const back_end_url = setup.back_end_url;
 
+// checks to see that the username and password received safe.. you can add your own extra checks
 function chk_info ([uchk, pchk]) {
     if (uchk.length <= 1 || pchk.length <= 1) { return false; } else { return true; }
 }
@@ -36,10 +38,11 @@ async function register ([newUser, newPass]) {
     }
 }
 
+// function for logging into a user account
 async function login ([user, pass]) {
-    // checks to see if the username or password is okay to be saved
     if (!chk_info([user, pass])) { alert('the length of your username or password might be too short'); return false; }
 
+    // sends the request to log the user in
     let send = await fetch(`${back_end_url}/users/login`, {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
         body: JSON.stringify({"username":user, "password":pass})
@@ -48,6 +51,7 @@ async function login ([user, pass]) {
     return send.json()
 }
 
+// the main page component
 const LoginPage = (props) => {
     let history = useHistory();
     let [uLog, setULog] = useState('');
@@ -65,9 +69,8 @@ const LoginPage = (props) => {
         return () => { props.userInLogginPage(false); }
     }, [])
 
-    // if the use is logged_in, then no need to see this page
-    if (props.logged_in) history.push('/');
-    if (props.logged_in) { return (<div className=""></div>); }
+    // if the user is logged_in, then no need to see this page
+    if (props.logged_in) { history.push('/'); return (<div className=""></div>); }
 
     return (
         <div className="LogBoss">
@@ -94,15 +97,16 @@ const LoginPage = (props) => {
                 <div>
                     <div className="LogDinp"><p>Enter your username</p> <p><input type="text" value={newUser} onChange={(e)=>setNewUser(e.target.value.trim())} /></p></div>
                     <div className="LogDinp"><p>New password</p> <p><input type="password" value={newPass} onChange={(e)=>setNewPass(e.target.value)} /></p></div>
-                    <div className="LogDBtn"><button onClick={() => {
-                        register([newUser, newPass]).then(re => {
-                            if (re.msg === 'okay') {
-                                inChk([newUser, newPass]);
-                            } else {
-                                alert(`Error: ${re.cause}`);
-                            }
-                        })
-                    }} className="button_blue">Register</button></div>
+                    <div className="LogDBtn"><button
+                        onClick={() => {
+                            register([newUser, newPass]).then(re => {
+                                if (re.msg === 'okay') {
+                                    inChk([newUser, newPass]);
+                                } else {
+                                    alert(`Error: ${re.cause}`);
+                                }
+                            })
+                        }} className="button_blue">Register</button></div>
                 </div>
             </div>
         </div>
