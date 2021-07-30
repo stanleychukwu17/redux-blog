@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import setup from '../setup'
 import './NewBlog.css'
 
-function saveTheBlog ({title, content, uid, setBlogSaved}) {
+function saveTheBlog ({title, content, uid}) {
     let snd, today, d, m, y;
     if (title.length <= 0) { alert('cannot submit your blog, your title is too short'); return; }
     if (content.length <= 0) { alert('cannot submit your blog, your blog content is too short'); return; }
@@ -13,17 +13,12 @@ function saveTheBlog ({title, content, uid, setBlogSaved}) {
     today = new Date();
     d = today.getDate(); m = today.getMonth(); y = today.getFullYear();
     today = `${d}-${m}-${y}`;
-    snd = {title, content, uid, 'date_p': today};
-
+    snd = {uid, title, content, 'date_p': today};
 
     return fetch(`${setup.back_end_url}/blogs/new-blog`, {
         mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"},
         body: JSON.stringify(snd)
-    }).then(re => re.json()).then(re => {
-        console.log(re);
-        // alert('New blog saved');
-        // setBlogSaved(true)
-    })
+    }).then(re => re.json())
 }
 
 const NewBlog = (props) => {
@@ -43,7 +38,11 @@ const NewBlog = (props) => {
                 <div className="Nwbg_inps"><p>Content:</p> <p><textarea onChange={(e)=>{setContent(e.target.value)}} value={content}></textarea></p></div>
             </div>
             <div className="BlgBtn"><button className="button_blue" onClick={() => {
-                saveTheBlog({title, content, 'uid':props.uid, setBlogSaved})
+                saveTheBlog({title, content, 'uid':props.uid}).then((re) => {
+                    if (re.msg !== 'okay') { alert(re.cause); return; }
+                    alert('New blog saved')
+                    setBlogSaved(true)
+                })
             }}>Save new blog</button></div>
         </div>
     );
