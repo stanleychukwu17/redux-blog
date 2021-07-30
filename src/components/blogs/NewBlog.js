@@ -5,15 +5,15 @@ import { Redirect } from 'react-router-dom';
 import setup from '../setup'
 import './NewBlog.css'
 
-function saveTheBlog ({title, dts, setBlogSaved}) {
+function saveTheBlog ({title, content, uid, setBlogSaved}) {
     let snd, today, d, m, y;
     if (title.length <= 0) { alert('cannot submit your blog, your title is too short'); return; }
-    if (dts.length <= 0) { alert('cannot submit your blog, your blog content is too short'); return; }
+    if (content.length <= 0) { alert('cannot submit your blog, your blog content is too short'); return; }
 
     today = new Date();
     d = today.getDate(); m = today.getMonth(); y = today.getFullYear();
     today = `${d}-${m}-${y}`;
-    snd = {title, dts, 'date_p': today};
+    snd = {title, content, uid, 'date_p': today};
 
 
     return fetch(`${setup.back_end_url}/blogs/new-blog`, {
@@ -28,7 +28,7 @@ function saveTheBlog ({title, dts, setBlogSaved}) {
 
 const NewBlog = (props) => {
     let [title, setTitle] = useState('');
-    let [dts, setDts] = useState('');
+    let [content, setContent] = useState('');
     let [blogSaved, setBlogSaved] = useState(false);
 
     // if the user is not logged in, we re-direct to the logging page
@@ -40,17 +40,17 @@ const NewBlog = (props) => {
             <div className="Blgortp">Posting a new blog</div>
             <div className="BlgorCv">
                 <div className="Nwbg_inps"><p>Title:</p> <p><input type="text" onChange={(e)=>{setTitle(e.target.value)}} value={title} /></p></div>
-                <div className="Nwbg_inps"><p>Content:</p> <p><textarea onChange={(e)=>{setDts(e.target.value)}} value={dts}></textarea></p></div>
+                <div className="Nwbg_inps"><p>Content:</p> <p><textarea onChange={(e)=>{setContent(e.target.value)}} value={content}></textarea></p></div>
             </div>
             <div className="BlgBtn"><button className="button_blue" onClick={() => {
-                saveTheBlog({title, dts, setBlogSaved})
+                saveTheBlog({title, content, 'uid':props.uid, setBlogSaved})
             }}>Save new blog</button></div>
         </div>
     );
 }
 
 let mapStateToProps = (state) => {
-    return {'logged_in':state.logged_in}
+    return {'logged_in':state.logged_in, 'uid':state.udts.uid};
 }
 
 export default connect(mapStateToProps)(NewBlog);
