@@ -1,7 +1,10 @@
 import {useState} from 'react'
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom';
+
+import setup from '../setup'
 import './NewBlog.css'
+console.log('oma na set up', setup)
 
 function saveTheBlog ({title, dts, setBlogSaved}) {
     let snd, today, d, m, y;
@@ -13,14 +16,14 @@ function saveTheBlog ({title, dts, setBlogSaved}) {
     today = `${d}-${m}-${y}`;
     snd = {title, dts, 'date_p': today};
 
-    console.log(snd, 'we are sending this man to the moon');
-    // return fetch('http://localhost:8000/blogs', {
-    //     method: 'POST', headers: { 'Content-Type': 'application/json'},
-    //     body: JSON.stringify(snd)
-    // }).then(re => {
-    //     alert('New blog saved');
-    //     setBlogSaved(true)
-    // })
+
+    return fetch(`${setup.back_end_url}/blogs/new-blog`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(snd)
+    }).then(re => {
+        alert('New blog saved');
+        setBlogSaved(true)
+    })
 }
 
 const NewBlog = (props) => {
