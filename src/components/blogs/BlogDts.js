@@ -29,7 +29,7 @@ function BlogEch ({inf}) {
     let link_to = `/BlogPage/${inf._id}`
 
     return (
-        <div className="BlgEch" id="">
+        <div className="BlgEch">
             <div className="Blgtop"><Link to={link_to}>{inf.title}</Link></div>
             <div className="Blgtt2"><div className="it_fl">Author: {inf.author}</div> <div className="it_rl">{inf.date_p}</div></div>
             <div className="BlgInr">
