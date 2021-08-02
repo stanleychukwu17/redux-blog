@@ -18,7 +18,7 @@ function likeThisblog (blog_id) {
         mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"},
         body: JSON.stringify({blog_id})
     }).then(re => re.json()).then(re => {
-        console.log(re);
+        // console.log(re);
     })
 }
 
