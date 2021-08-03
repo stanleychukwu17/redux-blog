@@ -25,7 +25,6 @@ function likeThisblog (blog_id) {
 function BlogEch ({inf}) {
     let [likes, setLikes] = useState(inf.likes);
     let comments = 0;
-
     let link_to = `/BlogPage/${inf._id}`
 
     return (
