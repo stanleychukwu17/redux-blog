@@ -10,6 +10,11 @@ const bambi = {
     'unfrezeBtn' : (grab) => {
         grab.forEach(elem => { elem.removeAttribute('disabled'); elem.classList.remove("disable_btn"); })
     },
+
+    get_url_queries : () => {
+        const url = window.location.search.split('&')
+        console.log(url)
+    }
 }
 
 export default bambi;

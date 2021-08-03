@@ -21,6 +21,8 @@ const BlogView = (props) => {
     const {id} = useParams();
     let userId = props.userId;
     let [comment, setComment] = useState('');
+    let urlComb = setup.get_url_queries(this);
+
 
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
