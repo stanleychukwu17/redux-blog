@@ -35,8 +35,8 @@ const BlogView = (props) => {
             {data && (
                 <>
                     <div className="Blvw_mjrC">
-                        <div className="Blvw_th1"><h1>{data.title}</h1></div>
-                        <div className="Blvw_tdts">{data.dts}</div>
+                        <div className="Blvw_th1"><h1>{data.dts.title}</h1></div>
+                        <div className="Blvw_tdts">{data.dts.content}</div>
                         <div className="Blvw_lika">
                             <div className="it_fl" onClick={(ev) => likeBlog(ev)}><i><BiLike /></i></div>
                             <div className="it_rl">{props.likes} <i><BiLike /></i></div>
