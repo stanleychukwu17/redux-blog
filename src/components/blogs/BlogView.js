@@ -12,7 +12,6 @@ import './BlogView.css'
 async function fecthOnlyThisBlog (id) {
     const blogs = await fetch(`${setup.back_end_url}/blogs/one-blog/${id}`);
     const fbg = await blogs.json();
-    console.log(fbg);
     return fbg;
 }
 
