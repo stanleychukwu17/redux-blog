@@ -10,14 +10,12 @@ import setup from '../setup'
 import './BlogView.css'
 
 async function fecthOnlyThisBlog (id) {
-    const users = await fetch(`http://localhost:8000/blogs/${id}`);
-    const fusers = users.json();
+    const blogs = await fetch(`${setup.back_end_url}/blogs/one-blog/${id}`);
+    const fusers = blogs.json();
     return fusers;
 }
 
-function submitComment (obj) {
-    console.log(obj)
-}
+function submitComment (obj) { console.log(obj) }
 
 const BlogView = (props) => {
     const {id} = useParams();
