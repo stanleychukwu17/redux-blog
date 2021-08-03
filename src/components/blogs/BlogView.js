@@ -6,6 +6,7 @@ import { BiLike } from "react-icons/bi";
 
 import {newLike4BlogAdded} from '../../redux/actions'
 
+import setup from '../setup'
 import './BlogView.css'
 
 async function fecthOnlyThisBlog (id) {
