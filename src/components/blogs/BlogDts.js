@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import setup from '../setup'
 import './BlogDts.css';
@@ -23,13 +23,18 @@ function likeThisblog (blog_id) {
 }
 
 function BlogEch ({inf}) {
-    let [likes, setLikes] = useState(inf.likes);
+    const [likes, setLikes] = useState(inf.likes);
+    const history = useHistory();
+
     let comments = 0;
-    let link_to = `/BlogPage/${inf._id}`
+    let L1 = `/BlogPage/${inf._id}`
+    let L2 = `/BlogPage/${inf._id}?toComment=yes`
+
+    const sendAmToComment = () => { history.push(L2); }
 
     return (
         <div className="BlgEch">
-            <div className="Blgtop"><Link to={link_to}>{inf.title}</Link></div>
+            <div className="Blgtop"><Link to={L1}>{inf.title}</Link></div>
             <div className="Blgtt2"><div className="it_fl">Author: {inf.author}</div> <div className="it_rl">{inf.date_p}</div></div>
             <div className="BlgInr">
                 <div>{inf.content}</div>
@@ -39,7 +44,7 @@ function BlogEch ({inf}) {
                             setLikes(c => c + 1);
                             likeThisblog(inf._id)
                         }} /></div>
-                        <div className="it_fl BlgcIcon"><img src="https://cdn2.iconfinder.com/data/icons/bitsies/128/Message-256.png" alt="" /></div>
+                        <div className="it_fl BlgcIcon" onClick={sendAmToComment}><img src="https://cdn2.iconfinder.com/data/icons/bitsies/128/Message-256.png" alt="" /></div>
                     </div>
                     <div className="it_rl BlgcStats"><div>{likes} likes</div> <div>{comments} comments</div></div>
                 </div>
