@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -23,13 +23,18 @@ const BlogView = (props) => {
     let [comment, setComment] = useState('');
     let urlComb = setup.get_url_queries(this);
 
-
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
     let likeBlog = (ev) => {
         props.newLike4BlogAdded({'add_new':true, 'ev':ev});
         // updateLikes({'add_new':true, 'ev':ev, 'newLike4BlogAdded':props.newLike4BlogAdded})
     };
+
+    useEffect(() => {
+        if (urlComb.toComment === 'yes' && document.getElementById('cmtSec')) {
+            document.getElementById('cmtSec').focus();
+        }
+    }, [urlComb]);
 
     return (
         <>
@@ -47,7 +52,7 @@ const BlogView = (props) => {
                     <div>
                         <div className="it_fl Blvw_cb1"><h2>Comments</h2></div>
                         <div className="it_fl Blvw_cb2">
-                            <div><textarea value={comment} onChange={(e) => setComment(e.target.value) }></textarea></div>
+                            <div><textarea id="cmtSec" value={comment} onChange={(e) => setComment(e.target.value) }></textarea></div>
                             <div><button className="button_blue" onClick={(e) => {
                                 submitComment({comment, userId, 'blogId':id});
                             }}>Post comment</button></div>

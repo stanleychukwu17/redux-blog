@@ -12,8 +12,18 @@ const bambi = {
     },
 
     get_url_queries : () => {
-        const url = window.location.search.split('&')
-        console.log(url)
+        let jack, john;
+        const url = window.location.search.split('&');
+        const boxer = {};
+
+        if (url.length <= 0) { return {} }
+        url.forEach((ech) => {
+            if (ech[0] === '?') { ech = ech.slice(1); }
+            [jack, john] = ech.split('=');
+            boxer[jack]=john;
+        });
+
+        return boxer
     }
 }
 
