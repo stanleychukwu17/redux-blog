@@ -1,6 +1,5 @@
 let initialState = {
-    'logged_in':false, 'logged_in_page_open':false, 'udts':{}, 'likes':0,
-    'all_users':[]
+    'logged_in':false, 'logged_in_page_open':false, 'udts':{}, 'all_users':[]
 };
 
 // gets the localStorage details, we want to know if the user is already logged in

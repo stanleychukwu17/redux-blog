@@ -19,7 +19,6 @@ function submitComment (obj) { console.log(obj) }
 
 const BlogView = (props) => {
     const {id} = useParams();
-    let userId = props.userId;
     let [comment, setComment] = useState('');
     let urlComb = setup.get_url_queries(this);
 
@@ -46,7 +45,7 @@ const BlogView = (props) => {
                         <div className="Blvw_tdts">{data.dts.content}</div>
                         <div className="Blvw_lika">
                             <div className="it_fl" onClick={(ev) => likeBlog(ev)}><i><BiLike /></i></div>
-                            <div className="it_rl">{props.likes} <i><BiLike /></i></div>
+                            <div className="it_rl">{data.dts.likes} <i><BiLike /></i></div>
                         </div>
                     </div>
                     <div>
@@ -54,7 +53,7 @@ const BlogView = (props) => {
                         <div className="it_fl Blvw_cb2">
                             <div><textarea id="cmtSec" value={comment} onChange={(e) => setComment(e.target.value) }></textarea></div>
                             <div><button className="button_blue" onClick={(e) => {
-                                submitComment({comment, userId, 'blogId':id});
+                                submitComment({comment, 'blogId':id});
                             }}>Post comment</button></div>
                         </div>
                         <div className="it_fl Blvw_cb3"><h2>33kc</h2></div>
@@ -67,7 +66,7 @@ const BlogView = (props) => {
 }
 
 let mapStateToProps = state => {
-    return {'userId':state.udts.id, 'likes':state.likes}
+    return {'userId':state.udts.id}
 }
 
 let mapDispatchToProps = dispatch => {
