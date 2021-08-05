@@ -7,13 +7,14 @@ export const userInLogginPage = (wch) => ({'type':'USER_IN_LOGGING_PAGE', 'paylo
 export const userHasLoggedIn = (udts) => ({'type':'USER_HAS_LOGGED_IN', 'payload':udts});
 
 export const userHasLoggedOut = (udts) => {
-    // window.localStorage.clear();
+    window.localStorage.clear();
+    console.log(udts);
     fetch(`${setup.back_end_url}/users/logout`, {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
         body: JSON.stringify({"uid":udts.uid, "hash":udts.hash})
     }).then(re => re.json()).then(re => console.log(re));
 
-    return {'type':'USER_HAS_LOGGED_OUT111'}
+    return {'type':'USER_HAS_LOGGED_OUT'}
 };
 
 export const newLike4BlogAdded = (obj) => {
