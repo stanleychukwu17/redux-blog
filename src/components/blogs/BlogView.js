@@ -19,12 +19,30 @@ async function fecthOnlyThisBlog (id) {
 
 function submitComment (obj) { console.log(obj) }
 
+
+const BlogComments = ({dts}) => {
+    return (
+        <div className="CmkOriCvr">
+            <div className="Cmk1Cvr">
+                <div className="CmkName">{dts.name}</div>
+                <div className="CmkDts">{dts.comment}</div>
+                <div className="CmTrash"><BsTrash /></div>
+            </div>
+            <div className="Cmk2Cvr"></div>
+        </div>
+    )
+}
+
+
+
 const BlogView = (props) => {
     const {id} = useParams();
+
     const [comment, setComment] = useState('');
     const [totComments, setTotComments] = useState(0);
-    let urlComb = setup.get_url_queries(this);
+    const [allComments, setAllComments] = useState([]);
 
+    // fetches the indivial blog details
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
     let likeBlog = (ev) => {
@@ -32,6 +50,8 @@ const BlogView = (props) => {
         // updateLikes({'add_new':true, 'ev':ev, 'newLike4BlogAdded':props.newLike4BlogAdded})
     };
 
+    // the useEfect below checks to see if there user wants to go straight to the comment section
+    const urlComb = setup.get_url_queries();
     useEffect(() => {
         if (urlComb.toComment === 'yes' && document.getElementById('cmtSec')) {
             document.getElementById('cmtSec').focus();
@@ -58,23 +78,19 @@ const BlogView = (props) => {
                             <div><button className="button_blue" onClick={(e) => {
                                 submitComment({comment, 'blogId':id});
                                 setTotComments(c => c+1);
+                                setAllComments(c => {
+                                    return [{'name':'stanley', 'comment':comment}, ...c]
+                                });
                             }}>Post comment</button></div>
                         </div>
                         <div className="it_fl Blvw_cb3"><h2>{totComments}kc</h2></div>
                     </div>
 
                     {/*for posting of comments */}
-                    <div className="CmkAtCvr"><h2>All comments</h2></div>
-                    <div>
-                        <div className="CmkOriCvr">
-                            <div className="Cmk1Cvr">
-                                <div className="CmkName">Stanley</div>
-                                <div className="CmkDts">This president i wont lie is a big mess.. i can't imagine where we got him from</div>
-                                <div className="CmTrash"><BsTrash /></div>
-                            </div>
-                            <div className="Cmk2Cvr"></div>
-                        </div>
-                    </div>
+                    {allComments.length > 0 &&  <div className="CmkAtCvr"><h2>All comments</h2></div>}
+                    {allComments.length > 0 && allComments.map(ech => {
+                        return <BlogComments key={ech.id} dts={ech} />
+                    })}
                 </>
             )}
 
