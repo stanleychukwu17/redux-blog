@@ -58,6 +58,8 @@ const BlogView = (props) => {
                         </div>
                         <div className="it_fl Blvw_cb3"><h2>33kc</h2></div>
                     </div>
+
+                    {/*for posting of comments */}
                     <div className="CmkAtCvr"><h2>All comments</h2></div>
                     <div>
                         <div className="CmkOriCvr">
