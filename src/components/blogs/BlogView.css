@@ -11,11 +11,7 @@
 .Blvw_lika { margin: 10px 0 0; font-size: 30px; }
 .Blvw_lika i { position: relative; bottom: -2px; }
 
-.Cmk1Cvr {
-    background-color: #fff; width: 60%; padding: 10px 35px; border-radius: 100px; margin: 10px 0;
-    box-shadow: 5px 5px 0 #ecf0f1, 8px 8px 0 skyblue;
-}
-.Cmk1Cvr > div { padding: 3px 0; }
+
 .CmkAtCvr {
     font-size: 17px; font-weight: bold; margin: 30px 0 20px; color: #2d3436; overflow: visible;
     width: 200px; padding: 0 0 10px; border-bottom: 4px solid #2d3436; position: relative;
@@ -31,4 +27,28 @@
     background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
     content: ""; display: block; position: absolute;
     width: 100%; height: 5px; bottom: 0; top: auto;
+}
+
+.Cmk1Cvr {
+    background-color: #fff; width: 60%; padding: 10px 35px; border-radius: 100px; margin: 10px 0;
+    box-shadow: 5px 5px 0 #ecf0f1, 8px 8px 0 skyblue;
+}
+.Cmk1Cvr > div { padding: 3px 0; }
+.CmTrash {
+    position: absolute; top: 29px; right: 25px; bottom: auto; cursor: pointer; visibility: hidden;
+    transform: scale(2);
+}
+.CmTrash:active { top: 30px; }
+.Cmk1Cvr:hover .CmTrash {
+    visibility: visible; animation-name: showBin; animation-duration: .6s;
+    animation-fill-mode: forwards;
+    /* transform: scale(2); */
+}
+
+@keyframes showBin {
+    0% { right: 0px; }
+    50% { right: 45px; }
+    60% { transform: rotateZ(15deg); }
+    80% { transform: scale(1.5) rotateZ(-20deg); }
+    100% { transform: scale(1); }
 }
