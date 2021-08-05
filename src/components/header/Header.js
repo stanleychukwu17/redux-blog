@@ -22,13 +22,13 @@ const Header = (props) => {
     );
 
     function LogoutUser (event) {
-        props.userHasLoggedOut();
+        props.userHasLoggedOut(props.udts);
         event.preventDefault();
     }
 }
 
 let mapStateToProps = (state) => {
-    return {'logged_in': state.logged_in};
+    return {'logged_in': state.logged_in, 'udts':state.udts};
 }
 
 let mapDispatchToProps = (dispatch) => {

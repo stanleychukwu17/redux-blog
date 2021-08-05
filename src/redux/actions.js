@@ -1,3 +1,5 @@
+import setup from '../components/setup'
+
 export const userLoggedIn = (user_id) => ({'type': 'USER_LOGGED_IN', 'payload':user_id})
 
 export const userInLogginPage = (wch) => ({'type':'USER_IN_LOGGING_PAGE', 'payload':wch});
@@ -5,14 +7,14 @@ export const userInLogginPage = (wch) => ({'type':'USER_IN_LOGGING_PAGE', 'paylo
 export const userHasLoggedIn = (udts) => ({'type':'USER_HAS_LOGGED_IN', 'payload':udts});
 
 export const userHasLoggedOut = (udts) => {
-    window.localStorage.clear();
+    // window.localStorage.clear();
 
-    fetch(`${back_end_url}/users/login`, {
+    fetch(`${setup.back_end_url}/users/logout`, {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
-        body: JSON.stringify({"username":udts.userId, "hash":udts.hash})
+        body: JSON.stringify({"uid":udts.uid, "hash":udts.hash})
     });
-
-    return {'type':'USER_HAS_LOGGED_OUT'}
+    console.log('sent ohhh', udts)
+    // return {'type':'USER_HAS_LOGGED_OUT'}
 };
 
 export const newLike4BlogAdded = (obj) => {
