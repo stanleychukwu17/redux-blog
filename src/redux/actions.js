@@ -8,11 +8,11 @@ export const userHasLoggedIn = (udts) => ({'type':'USER_HAS_LOGGED_IN', 'payload
 
 export const userHasLoggedOut = (udts) => {
     window.localStorage.clear();
-    console.log(udts);
+
     fetch(`${setup.back_end_url}/users/logout`, {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
         body: JSON.stringify({"uid":udts.uid, "hash":udts.hash})
-    }).then(re => re.json()).then(re => console.log(re));
+    });
 
     return {'type':'USER_HAS_LOGGED_OUT'}
 };
