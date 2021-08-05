@@ -48,7 +48,9 @@ async function login ([user, pass]) {
         body: JSON.stringify({"username":user, "password":pass})
     });
 
-    return send.json()
+    let re = await send.json();
+    re.username = user;
+    return re;
 }
 
 // the main page component
