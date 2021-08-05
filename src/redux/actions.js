@@ -4,8 +4,14 @@ export const userInLogginPage = (wch) => ({'type':'USER_IN_LOGGING_PAGE', 'paylo
 
 export const userHasLoggedIn = (udts) => ({'type':'USER_HAS_LOGGED_IN', 'payload':udts});
 
-export const userHasLoggedOut = () => {
+export const userHasLoggedOut = (udts) => {
     window.localStorage.clear();
+
+    fetch(`${back_end_url}/users/login`, {
+        mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
+        body: JSON.stringify({"username":udts.userId, "hash":udts.hash})
+    });
+
     return {'type':'USER_HAS_LOGGED_OUT'}
 };
 
