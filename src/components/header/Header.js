@@ -7,7 +7,7 @@ import './Header.css';
 const Header = (props) => {
     let wch_link = '';
 
-    if (props.logged_in) { wch_link = <a href="/" onClick={LogoutUser}>Logout</a>  }
+    if (props.logged_in) { wch_link = <Link to="/" onClick={LogoutUser}>Logout</Link>  }
     else { wch_link = <Link to="/login">Login</Link>  }
 
     return (
@@ -32,7 +32,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-    return {'userHasLoggedOut': () => dispatch(userHasLoggedOut())}
+    return {'userHasLoggedOut': (info) => dispatch(userHasLoggedOut(info))}
 }
  
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
