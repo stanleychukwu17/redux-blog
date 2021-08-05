@@ -17,8 +17,14 @@
 }
 .Cmk1Cvr > div { padding: 3px 0; }
 .CmkAtCvr {
-    font-size: 17px; font-weight: bold; margin: 30px 0 0; color: #2d3436;
+    font-size: 17px; font-weight: bold; margin: 30px 0 20px; color: #2d3436; overflow: visible;
     width: 200px; padding: 0 0 10px; border-bottom: 4px solid #2d3436; position: relative;
+}
+.CmkAtCvr:before {
+    content: ""; width: 0; height: 0;
+    display: block; position: absolute; bottom: -30px; right: 0; left: auto; top: auto;
+    border: 13px solid transparent;
+    border-top-color: black;
 }
 .CmkAtCvr::after {
     background-color: #0cbaba;
