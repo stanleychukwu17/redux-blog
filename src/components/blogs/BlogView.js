@@ -99,6 +99,7 @@ const BlogView = (props) => {
 }
 
 let mapStateToProps = state => {
+    console.log(state);
     return {'userId':state.udts.id}
 }
 
