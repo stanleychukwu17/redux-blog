@@ -43,12 +43,12 @@ async function login ([user, pass]) {
     if (!chk_info([user, pass])) { alert('the length of your username or password might be too short'); return false; }
 
     // sends the request to log the user in
-    let send = await fetch(`${back_end_url}/users/login`, {
+    const send = await fetch(`${back_end_url}/users/login`, {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
         body: JSON.stringify({"username":user, "password":pass})
     });
 
-    let re = await send.json();
+    const re = await send.json();
     re.username = user;
     return re;
 }
