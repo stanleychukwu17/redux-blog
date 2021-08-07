@@ -79,7 +79,6 @@ const BlogView = (props) => {
                                 submitComment({comment, 'blogId':id});
                                 setTotComments(c => c+1);
                                 setAllComments(c => {
-                                    console.log(props)
                                     return [{'name':props.username, 'comment':comment}, ...c]
                                 });
                             }}>Post comment</button></div>
