@@ -17,7 +17,14 @@ async function fecthOnlyThisBlog (id) {
     return fbg;
 }
 
-function submitComment (obj) { console.log(obj) }
+// for submitting of comments to the backend
+function submitComment (obj) {
+    console.log(obj);
+    fetch(`${setup.back_end_url}/blogs/`, {
+        mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
+        body: JSON.stringify(obj)
+    }).then(re => re.json()).then(re => console.log(re));
+}
 
 
 const BlogComments = ({dts}) => {
@@ -33,8 +40,6 @@ const BlogComments = ({dts}) => {
     )
 }
 
-
-
 const BlogView = (props) => {
     const {id} = useParams();
 
@@ -45,6 +50,7 @@ const BlogView = (props) => {
     // fetches the indivial blog details
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
+    // for liking of the blog
     let likeBlog = (ev) => {
         props.newLike4BlogAdded({'add_new':true, 'ev':ev});
         // updateLikes({'add_new':true, 'ev':ev, 'newLike4BlogAdded':props.newLike4BlogAdded})
@@ -76,7 +82,7 @@ const BlogView = (props) => {
                         <div className="it_fl Blvw_cb2">
                             <div><textarea id="cmtSec" value={comment} onChange={(e) => setComment(e.target.value) }></textarea></div>
                             <div><button className="button_blue" onClick={(e) => {
-                                submitComment({comment, 'blogId':id});
+                                submitComment({comment, id, 'userId':props.userId});
                                 setTotComments(c => c+1);
                                 setAllComments(c => {
                                     return [{'name':props.username, 'comment':comment}, ...c]
