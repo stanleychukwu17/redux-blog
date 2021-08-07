@@ -20,7 +20,7 @@ async function fecthOnlyThisBlog (id) {
 // for submitting of comments to the backend
 function submitComment (obj) {
     console.log(obj);
-    fetch(`${setup.back_end_url}/blogs/`, {
+    fetch(`${setup.back_end_url}/blogs/makeComment/`, {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
         body: JSON.stringify(obj)
     }).then(re => re.json()).then(re => console.log(re));
