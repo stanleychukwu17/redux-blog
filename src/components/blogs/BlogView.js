@@ -79,7 +79,8 @@ const BlogView = (props) => {
                                 submitComment({comment, 'blogId':id});
                                 setTotComments(c => c+1);
                                 setAllComments(c => {
-                                    return [{'name':'stanley', 'comment':comment}, ...c]
+                                    console.log(props)
+                                    return [{'name':props.username, 'comment':comment}, ...c]
                                 });
                             }}>Post comment</button></div>
                         </div>
@@ -99,8 +100,7 @@ const BlogView = (props) => {
 }
 
 let mapStateToProps = state => {
-    console.log(state);
-    return {'userId':state.udts.id}
+    return {'userId':state.udts.uid, 'username':state.udts.username}
 }
 
 let mapDispatchToProps = dispatch => {
