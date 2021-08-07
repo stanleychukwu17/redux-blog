@@ -1,6 +1,4 @@
-let initialState = {
-    'logged_in':false, 'logged_in_page_open':false, 'udts':{}, 'all_users':[]
-};
+let initialState = {'logged_in':false, 'logged_in_page_open':false, 'udts':{}};
 
 // gets the localStorage details, we want to know if the user is already logged in
 let kamil = window.localStorage.getItem('logged_in_dts');

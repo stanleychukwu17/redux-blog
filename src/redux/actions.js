@@ -19,7 +19,6 @@ export const userHasLoggedOut = (udts) => {
 
 export const newLike4BlogAdded = (obj) => {
     return (dispatch) => {
-        let likes = 0;
         if (obj.add_new) { obj.ev.target.style.visibility = 'hidden'; }
     
         // fetch('http://localhost:8000/likes/').then(re => re.json()).then(re => {
