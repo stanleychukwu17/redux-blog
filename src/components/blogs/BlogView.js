@@ -18,11 +18,12 @@ async function fecthOnlyThisBlog (id) {
 }
 
 // for submitting of comments to the backend
-function submitComment (obj) {
-    fetch(`${setup.back_end_url}/blogs/makeComment/`, {
-        mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
-        body: JSON.stringify(obj)
-    }).then(re => re.json()).then(re => console.log(re));
+function submitComment (obj, callBack) {
+    callBack('i see you boy!', 'add')
+    // fetch(`${setup.back_end_url}/blogs/makeComment/`, {
+    //     mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
+    //     body: JSON.stringify(obj)
+    // }).then(re => re.json()).then(re => console.log(re));
 }
 
 
@@ -65,7 +66,7 @@ const BlogView = (props) => {
 
     // for updating the comments with the main one returned from the database
     const refreshComment = (new_comment, wch) => {
-        console.log('time to refreshComment')
+        console.log('time to refreshComment', new_comment, wch);
     }
 
     return (
