@@ -51,6 +51,15 @@ const BlogView = (props) => {
     // fetches the indivial blog details
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
+    useEffect(() => {
+        if (data) {
+            setTotComments(data.dts.cdts.total)
+            setAllComments(data.dts.cdts.comments)
+        } else {
+            console.log('e no dey ohh')
+        }
+    }, [data])
+
     // for liking of the blog
     let likeBlog = (ev) => {
         props.newLike4BlogAdded({'add_new':true, 'ev':ev});
@@ -71,8 +80,6 @@ const BlogView = (props) => {
             setAllComments(c => {
                 return [{'id':dts._id, 'name':props.username, 'comment':comment}, ...c]
             });
-            // allComments.shift();
-            // const jam = [new_dts, ...allComments];
         }
     }
 
@@ -107,7 +114,7 @@ const BlogView = (props) => {
                     {/*for posting of comments */}
                     {allComments.length > 0 &&  <div className="CmkAtCvr"><h2>All comments</h2></div>}
                     {allComments.length > 0 && allComments.map(ech => {
-                        return <BlogComments key={ech.id} dts={ech} />
+                        return <BlogComments key={ech._id} dts={ech} />
                     })}
                 </>
             )}
