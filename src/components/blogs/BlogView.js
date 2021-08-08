@@ -19,11 +19,18 @@ async function fecthOnlyThisBlog (id) {
 
 // for submitting of comments to the backend
 function submitComment (obj, callBack) {
-    callBack('i see you boy!', 'add')
+    callBack({
+        _id: '610ff5177988a13a28315191',
+        blogId: '6103b30572fb773aa884ab27',
+        userId: '61039310c0d68f22c018c181',
+        comment: obj.comment,
+    }, 'last_guy_added')
     // fetch(`${setup.back_end_url}/blogs/makeComment/`, {
     //     mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
     //     body: JSON.stringify(obj)
-    // }).then(re => re.json()).then(re => console.log(re));
+    // }).then(re => re.json()).then(re => {
+    //     callBack(re, 'last_guy_added')
+    // });
 }
 
 
@@ -65,8 +72,13 @@ const BlogView = (props) => {
     }, [urlComb]);
 
     // for updating the comments with the main one returned from the database
-    const refreshComment = (new_comment, wch) => {
-        console.log('time to refreshComment', new_comment, wch);
+    const refreshComment = (new_dts, wch) => {
+        if (wch === 'last_guy_added') {
+            allComments.shift();
+            const jam = [new_dts, ...allComments];
+            console.log(new_dts);
+            console.log(jam);
+        }
     }
 
     return (
@@ -90,7 +102,7 @@ const BlogView = (props) => {
                                 submitComment({comment, id, 'userId':props.userId}, refreshComment);
                                 setTotComments(c => c+1);
                                 setAllComments(c => {
-                                    return [{'name':props.username, 'comment':comment}, ...c]
+                                    return [{'id':'akajaja', 'name':props.username, 'comment':comment}, ...c]
                                 });
                             }}>Post comment</button></div>
                         </div>
