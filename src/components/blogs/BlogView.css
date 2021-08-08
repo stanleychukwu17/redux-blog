@@ -34,6 +34,7 @@
     box-shadow: 5px 5px 0 #ecf0f1, 8px 8px 0 skyblue;
 }
 .Cmk1Cvr > div { padding: 3px 0; }
+.CmkName  { text-transform: capitalize; }
 .CmTrash {
     position: absolute; top: 29px; right: 25px; bottom: auto; cursor: pointer; visibility: hidden;
     transform: scale(2);
