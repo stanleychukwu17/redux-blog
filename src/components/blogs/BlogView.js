@@ -19,7 +19,7 @@ async function fecthOnlyThisBlog (id) {
 
 // for submitting of comments to the backend
 function submitComment (obj) {
-    console.log(obj);
+    console.log(obj, 'e don move');
     fetch(`${setup.back_end_url}/blogs/makeComment/`, {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
         body: JSON.stringify(obj)
