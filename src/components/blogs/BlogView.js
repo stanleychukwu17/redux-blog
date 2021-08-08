@@ -63,6 +63,11 @@ const BlogView = (props) => {
         }
     }, [urlComb]);
 
+    // for updating the comments with the main one returned from the database
+    const refreshComment = (new_comment, wch) => {
+        console.log('time to refreshComment')
+    }
+
     return (
         <>
             {isLoading && <h2>Loading...</h2>}
@@ -81,7 +86,7 @@ const BlogView = (props) => {
                         <div className="it_fl Blvw_cb2">
                             <div><textarea id="cmtSec" value={comment} onChange={(e) => setComment(e.target.value) }></textarea></div>
                             <div><button className="button_blue" onClick={(e) => {
-                                submitComment({comment, id, 'userId':props.userId});
+                                submitComment({comment, id, 'userId':props.userId}, refreshComment);
                                 setTotComments(c => c+1);
                                 setAllComments(c => {
                                     return [{'name':props.username, 'comment':comment}, ...c]
