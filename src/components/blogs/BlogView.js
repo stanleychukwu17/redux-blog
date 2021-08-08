@@ -74,10 +74,11 @@ const BlogView = (props) => {
     // for updating the comments with the main one returned from the database
     const refreshComment = (new_dts, wch) => {
         if (wch === 'last_guy_added') {
-            allComments.shift();
-            const jam = [new_dts, ...allComments];
-            console.log(new_dts);
-            console.log(jam);
+            setTimeout(() => {
+                console.log('biggy', allComments)
+            }, 500)
+            // allComments.shift();
+            // const jam = [new_dts, ...allComments];
         }
     }
 
@@ -99,11 +100,11 @@ const BlogView = (props) => {
                         <div className="it_fl Blvw_cb2">
                             <div><textarea id="cmtSec" value={comment} onChange={(e) => setComment(e.target.value) }></textarea></div>
                             <div><button className="button_blue" onClick={(e) => {
-                                submitComment({comment, id, 'userId':props.userId}, refreshComment);
                                 setTotComments(c => c+1);
                                 setAllComments(c => {
-                                    return [{'id':'akajaja', 'name':props.username, 'comment':comment}, ...c]
+                                    return [{'id':new Date(), 'name':props.username, 'comment':comment}, ...c]
                                 });
+                                submitComment({comment, id, 'userId':props.userId}, refreshComment);
                             }}>Post comment</button></div>
                         </div>
                         <div className="it_fl Blvw_cb3"><h2>{totComments}kc</h2></div>
