@@ -19,18 +19,12 @@ async function fecthOnlyThisBlog (id) {
 
 // for submitting of comments to the backend
 function submitComment (obj, callBack) {
-    callBack({
-        _id: '610ff5177988a13a28315191',
-        blogId: '6103b30572fb773aa884ab27',
-        userId: '61039310c0d68f22c018c181',
-        comment: obj.comment,
-    }, 'last_guy_added')
-    // fetch(`${setup.back_end_url}/blogs/makeComment/`, {
-    //     mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
-    //     body: JSON.stringify(obj)
-    // }).then(re => re.json()).then(re => {
-    //     callBack(re, 'last_guy_added')
-    // });
+    fetch(`${setup.back_end_url}/blogs/makeComment/`, {
+        mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
+        body: JSON.stringify(obj)
+    }).then(re => re.json()).then(re => {
+        callBack(re, 'last_guy_added')
+    });
 }
 
 
@@ -72,11 +66,10 @@ const BlogView = (props) => {
     }, [urlComb]);
 
     // for updating the comments with the main one returned from the database
-    const refreshComment = (new_dts, wch) => {
-        console.log(new_dts);
+    const refreshComment = (dts, wch) => {
         if (wch === 'last_guy_added') {
             setAllComments(c => {
-                return [{'id':new Date(), 'name':props.username, 'comment':comment}, ...c]
+                return [{'id':dts._id, 'name':props.username, 'comment':comment}, ...c]
             });
             // allComments.shift();
             // const jam = [new_dts, ...allComments];
@@ -101,8 +94,11 @@ const BlogView = (props) => {
                         <div className="it_fl Blvw_cb2">
                             <div><textarea id="cmtSec" value={comment} onChange={(e) => setComment(e.target.value) }></textarea></div>
                             <div><button className="button_blue" onClick={(e) => {
-                                setTotComments(c => c+1);
-                                submitComment({comment, id, 'userId':props.userId}, refreshComment);
+                                if (comment.length > 0) {
+                                    setTotComments(c => c+1);
+                                    submitComment({comment, id, 'userId':props.userId}, refreshComment);
+                                    setComment('');
+                                }
                             }}>Post comment</button></div>
                         </div>
                         <div className="it_fl Blvw_cb3"><h2>{totComments}kc</h2></div>
