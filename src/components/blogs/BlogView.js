@@ -51,6 +51,7 @@ const BlogView = (props) => {
     // fetches the indivial blog details
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
+    // when
     useEffect(() => {
         if (data) {
             setTotComments(data.dts.cdts.total)
