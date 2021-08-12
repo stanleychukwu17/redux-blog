@@ -56,7 +56,6 @@ const BlogView = (props) => {
         if (data) {
             setTotComments(data.dts.cdts.total)
             setAllComments(data.dts.cdts.comments)
-            console.log(allComments)
         }
     }, [data])
 
