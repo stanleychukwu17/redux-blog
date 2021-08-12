@@ -34,7 +34,7 @@ const BlogComments = ({dts, owner}) => {
             <div className="Cmk1Cvr">
                 <div className="CmkName">{dts.name}</div>
                 <div className="CmkDts">{dts.comment}</div>
-                <div className="CmTrash"><BsTrash /></div>
+                {owner === dts.userId &&  <div className="CmTrash"><BsTrash /></div>}
             </div>
             <div className="Cmk2Cvr"></div>
         </div>
