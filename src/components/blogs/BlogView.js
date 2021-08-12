@@ -65,10 +65,10 @@ const BlogView = (props) => {
     }, [data])
 
     // for liking of the blog
-    let likeBlog = (ev) => {
-        props.newLike4BlogAdded({'add_new':true, 'ev':ev});
+    let likeBlog = (blogId) => {
+        props.newLike4BlogAdded();
         setTotLikes(c => c + 1);
-        // updateLikes({'add_new':true, 'ev':ev, 'newLike4BlogAdded':props.newLike4BlogAdded})
+        setup.likeThisblog(blogId);
     };
 
     // the useEfect below checks to see if there user wants to go straight to the comment section
@@ -97,7 +97,7 @@ const BlogView = (props) => {
                         <div className="Blvw_th1"><h1>{data.dts.title}</h1></div>
                         <div className="Blvw_tdts">{data.dts.content}</div>
                         <div className="Blvw_lika">
-                            <div className="it_fl" onClick={(ev) => likeBlog(ev)}><i><BiLike /></i></div>
+                            <div className="it_fl" onClick={(ev) => likeBlog(data.dts._id)}><i><BiLike /></i></div>
                             <div className="it_rl">{totLikes} <i><BiLike /></i></div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ let mapStateToProps = state => {
 }
 
 let mapDispatchToProps = dispatch => {
-    return {newLike4BlogAdded : (cur_lks) => dispatch(newLike4BlogAdded(cur_lks))}
+    return {newLike4BlogAdded : () => dispatch(newLike4BlogAdded())}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlogView);
