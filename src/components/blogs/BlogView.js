@@ -23,7 +23,6 @@ function submitComment (obj, callBack) {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
         body: JSON.stringify(obj)
     }).then(re => re.json()).then(re => {
-        console.log(re);
         callBack(re, 'last_guy_added')
     });
 }
@@ -78,6 +77,7 @@ const BlogView = (props) => {
     const refreshComment = (dts, wch) => {
         if (wch === 'last_guy_added') {
             setAllComments(c => {
+                console.log(dts, dts._id)
                 return [{'id':dts._id, 'name':props.username, 'comment':comment}, ...c]
             });
         }
