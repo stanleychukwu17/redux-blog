@@ -28,11 +28,11 @@ function submitComment (obj, callBack) {
 }
 
 
-const BlogComments = ({dts, key, owner}) => {
-    console.log(owner);
+const BlogComments = ({dts, owner}) => {
+    console.log(owner, dts.userId);
     console.log('rendered')
     return (
-        <div className="CmkOriCvr" data-id={dts._id} data-name={dts.name}>
+        <div className="CmkOriCvr" data-id={dts._id}>
             <div className="Cmk1Cvr">
                 <div className="CmkName">{dts.name}</div>
                 <div className="CmkDts">{dts.comment}</div>
