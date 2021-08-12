@@ -19,12 +19,15 @@ async function fecthOnlyThisBlog (id) {
 
 // for submitting of comments to the backend
 function submitComment (obj, callBack) {
-    fetch(`${setup.back_end_url}/blogs/makeComment/`, {
-        mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
-        body: JSON.stringify(obj)
-    }).then(re => re.json()).then(re => {
+    fetch(`${setup.back_end_url}/blogs/makeComment/`, {mode:'cors', method:"POST", headers:{"Content-Type": "application/json"}, body: JSON.stringify(obj)})
+    .then(re => re.json()).then(re => {
         callBack(re, 'last_guy_added')
     });
+}
+
+// deletes a comment from our database
+function deleteComment (comId, userId) {
+    console.log('we for the delete now!', comId, userId);
 }
 
 
@@ -34,7 +37,7 @@ const BlogComments = ({dts, owner}) => {
             <div className="Cmk1Cvr">
                 <div className="CmkName">{dts.name}</div>
                 <div className="CmkDts">{dts.comment}</div>
-                {owner === dts.userId &&  <div className="CmTrash"><BsTrash /></div>}
+                {owner === dts.userId &&  <div className="CmTrash" onClick={() => deleteComment(dts._id, owner)}><BsTrash /></div>}
             </div>
             <div className="Cmk2Cvr"></div>
         </div>
