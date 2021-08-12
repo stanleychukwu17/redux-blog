@@ -29,8 +29,6 @@ function submitComment (obj, callBack) {
 
 
 const BlogComments = ({dts, owner}) => {
-    console.log(owner, dts.userId);
-    console.log('rendered')
     return (
         <div className="CmkOriCvr" data-id={dts._id}>
             <div className="Cmk1Cvr">
