@@ -47,6 +47,7 @@ const BlogComments = ({dts, owner}) => {
 const BlogView = (props) => {
     const {id} = useParams();
 
+    setup.likeThisblog(10);
     const [comment, setComment] = useState('');
     const [totComments, setTotComments] = useState(0);
     const [allComments, setAllComments] = useState([]);

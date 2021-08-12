@@ -28,12 +28,9 @@ const bambi = {
 
     // sends the liking of a blog to the backend
     likeThisblog : (blog_id) => {
-        // fetch(`${setup.back_end_url}/blogs/like-new-blog`, {
-        //     mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"},
-        //     body: JSON.stringify({blog_id})
-        // }).then(re => re.json()).then(re => {
-        // })
-        console.log(blog_id, this.back_end_url);
+        fetch(`${bambi.back_end_url}/blogs/like-new-blog`, {
+            mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({blog_id})
+        }).then(re => re.json()).then(re => {})
     }
 }
 
