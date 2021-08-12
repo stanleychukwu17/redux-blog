@@ -77,8 +77,7 @@ const BlogView = (props) => {
     const refreshComment = (dts, wch) => {
         if (wch === 'last_guy_added') {
             setAllComments(c => {
-                console.log(dts, dts._id)
-                return [{'id':dts._id, 'name':props.username, 'comment':comment}, ...c]
+                return [{'_id':dts._id, 'name':props.username, 'comment':comment}, ...c]
             });
         }
     }
