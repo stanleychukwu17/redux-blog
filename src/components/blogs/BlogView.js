@@ -23,6 +23,7 @@ function submitComment (obj, callBack) {
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"},
         body: JSON.stringify(obj)
     }).then(re => re.json()).then(re => {
+        console.log(re);
         callBack(re, 'last_guy_added')
     });
 }
@@ -30,7 +31,7 @@ function submitComment (obj, callBack) {
 
 const BlogComments = ({dts}) => {
     return (
-        <div className="CmkOriCvr">
+        <div className="CmkOriCvr" data-id={dts._id} data-name={dts.name}>
             <div className="Cmk1Cvr">
                 <div className="CmkName">{dts.name}</div>
                 <div className="CmkDts">{dts.comment}</div>
