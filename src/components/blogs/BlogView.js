@@ -56,6 +56,7 @@ const BlogView = (props) => {
         if (data) {
             setTotComments(data.dts.cdts.total)
             setAllComments(data.dts.cdts.comments)
+            console.log(allComments)
         }
     }, [data])
 
@@ -77,7 +78,7 @@ const BlogView = (props) => {
     const refreshComment = (dts, wch) => {
         if (wch === 'last_guy_added') {
             setAllComments(c => {
-                return [{'_id':dts._id, 'name':props.username, 'comment':comment}, ...c]
+                return [{'_id':dts._id, 'userId':dts.userId, 'name':props.username, 'comment':comment}, ...c]
             });
         }
     }
