@@ -47,10 +47,10 @@ const BlogComments = ({dts, owner}) => {
 const BlogView = (props) => {
     const {id} = useParams();
 
-    setup.likeThisblog(10);
     const [comment, setComment] = useState('');
     const [totComments, setTotComments] = useState(0);
     const [allComments, setAllComments] = useState([]);
+    const [totLikes, setTotLikes] = useState(0);
 
     // fetches the indivial blog details
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
@@ -60,12 +60,14 @@ const BlogView = (props) => {
         if (data) {
             setTotComments(data.dts.cdts.total)
             setAllComments(data.dts.cdts.comments)
+            setTotLikes(data.dts.likes)
         }
     }, [data])
 
     // for liking of the blog
     let likeBlog = (ev) => {
         props.newLike4BlogAdded({'add_new':true, 'ev':ev});
+        setTotLikes(c => c + 1);
         // updateLikes({'add_new':true, 'ev':ev, 'newLike4BlogAdded':props.newLike4BlogAdded})
     };
 
@@ -96,7 +98,7 @@ const BlogView = (props) => {
                         <div className="Blvw_tdts">{data.dts.content}</div>
                         <div className="Blvw_lika">
                             <div className="it_fl" onClick={(ev) => likeBlog(ev)}><i><BiLike /></i></div>
-                            <div className="it_rl">{data.dts.likes} <i><BiLike /></i></div>
+                            <div className="it_rl">{totLikes} <i><BiLike /></i></div>
                         </div>
                     </div>
                     <div>

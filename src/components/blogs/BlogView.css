@@ -10,6 +10,8 @@
 
 .Blvw_lika { margin: 10px 0 0; font-size: 30px; }
 .Blvw_lika i { position: relative; bottom: -2px; }
+.Blvw_lika > .it_fl:first-child { cursor: pointer; }
+.Blvw_lika > .it_fl:active { top: 2px; }
 
 
 .CmkAtCvr {
