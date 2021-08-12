@@ -28,7 +28,9 @@ function submitComment (obj, callBack) {
 }
 
 
-const BlogComments = ({dts}) => {
+const BlogComments = ({dts, key, owner}) => {
+    console.log(owner);
+    console.log('rendered')
     return (
         <div className="CmkOriCvr" data-id={dts._id} data-name={dts.name}>
             <div className="Cmk1Cvr">
@@ -113,7 +115,7 @@ const BlogView = (props) => {
                     {/*for posting of comments */}
                     {allComments.length > 0 &&  <div className="CmkAtCvr"><h2>All comments</h2></div>}
                     {allComments.length > 0 && allComments.map(ech => {
-                        return <BlogComments key={ech._id} dts={ech} />
+                        return <BlogComments key={ech._id} dts={ech} owner={props.userId} />
                     })}
                 </>
             )}
