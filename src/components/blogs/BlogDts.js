@@ -12,16 +12,6 @@ async function fecthBlogs () {
     return fusers;
 }
 
-// send the like to the backend
-function likeThisblog (blog_id) {
-    fetch(`${setup.back_end_url}/blogs/like-new-blog`, {
-        mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({blog_id})
-    }).then(re => re.json()).then(re => {
-        // console.log(re);
-    })
-}
-
 function BlogEch ({inf}) {
     const [likes, setLikes] = useState(inf.likes);
     const history = useHistory();
@@ -42,7 +32,7 @@ function BlogEch ({inf}) {
                     <div className="it_fl BlgcOvr">
                         <div className="it_fl"><img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/like-512.png" alt="like" onClick={() => {
                             setLikes(c => c + 1);
-                            likeThisblog(inf._id)
+                            setup.likeThisblog(inf._id)
                         }} /></div>
                         <div className="it_fl BlgcIcon" onClick={sendAmToComment}><img src="https://cdn2.iconfinder.com/data/icons/bitsies/128/Message-256.png" alt="" /></div>
                     </div>
