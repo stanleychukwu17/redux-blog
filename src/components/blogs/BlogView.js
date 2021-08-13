@@ -68,12 +68,6 @@ const BlogView = (props) => {
         }
     }, [data])
 
-    // for liking of the blog
-    let likeBlog = (blogId) => {
-        props.newLike4BlogAdded();
-        setTotLikes(c => c + 1);
-        setup.likeThisblog(blogId);
-    };
 
     // the useEfect below checks to see if there user wants to go straight to the comment section
     const urlComb = setup.get_url_queries();
@@ -82,6 +76,14 @@ const BlogView = (props) => {
             document.getElementById('cmtSec').focus();
         }
     }, [urlComb]);
+
+
+    // for liking of the blog
+    let likeBlog = (blogId) => {
+        props.newLike4BlogAdded();
+        setTotLikes(c => c + 1);
+        setup.likeThisblog(blogId);
+    };
 
     // for updating the comments with the main one returned from the database
     const refreshComment = (dts, wch) => {
@@ -94,7 +96,9 @@ const BlogView = (props) => {
 
     // deletes a comment from the state of comments
     function delComment (cmId) {
-        console.log('delete the blog view comment from the ukokoma logma', cmId);
+        setAllComments(cmts => {
+            return cmts.filter(arr => arr._id !== cmId)
+        });
     }
 
     return (
