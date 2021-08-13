@@ -29,9 +29,7 @@ function submitComment (obj, callBack) {
 function deleteComment (comId, userId) {
     fetch(`${setup.back_end_url}/blogs/deleteComment/`,{
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"}, body: JSON.stringify({comId, userId})
-    }).then(re => re.json()).then(re => {
-        console.log(re);
-    });
+    }).then(re => re.json()).then(re => {});
 }
 
 
