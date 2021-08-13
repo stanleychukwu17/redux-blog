@@ -27,7 +27,6 @@ function submitComment (obj, callBack) {
 
 // deletes a comment from our database
 function deleteComment (comId, userId) {
-    console.log('we for the delete now!', );
     fetch(`${setup.back_end_url}/blogs/deleteComment/`,{
         mode:'cors', method:"POST", headers:{"Content-Type": "application/json"}, body: JSON.stringify({comId, userId})
     }).then(re => re.json()).then(re => {
@@ -37,7 +36,6 @@ function deleteComment (comId, userId) {
 
 
 const BlogComments = ({dts, owner, delF}) => {
-
     return (
         <div className="CmkOriCvr" data-id={dts._id}>
             <div className="Cmk1Cvr">
