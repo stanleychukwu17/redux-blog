@@ -27,7 +27,12 @@ function submitComment (obj, callBack) {
 
 // deletes a comment from our database
 function deleteComment (comId, userId) {
-    console.log('we for the delete now!', comId, userId);
+    console.log('we for the delete now!', );
+    fetch(`${setup.back_end_url}/blogs/deleteComment/`,{
+        mode:'cors', method:"POST", headers:{"Content-Type": "application/json"}, body: JSON.stringify({comId, userId})
+    }).then(re => re.json()).then(re => {
+        console.log(re);
+    });
 }
 
 
@@ -38,7 +43,7 @@ const BlogComments = ({dts, owner, delF}) => {
             <div className="Cmk1Cvr">
                 <div className="CmkName">{dts.name}</div>
                 <div className="CmkDts">{dts.comment}</div>
-                {owner === dts.userId &&  <div className="CmTrash" onClick={() => {
+                {owner === dts.userId && <div className="CmTrash" onClick={() => {
                     deleteComment(dts._id, owner);
                     delF(dts._id);
                 }}><BsTrash /></div>}
