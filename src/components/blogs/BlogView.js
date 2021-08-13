@@ -31,13 +31,17 @@ function deleteComment (comId, userId) {
 }
 
 
-const BlogComments = ({dts, owner}) => {
+const BlogComments = ({dts, owner, delF}) => {
+
     return (
         <div className="CmkOriCvr" data-id={dts._id}>
             <div className="Cmk1Cvr">
                 <div className="CmkName">{dts.name}</div>
                 <div className="CmkDts">{dts.comment}</div>
-                {owner === dts.userId &&  <div className="CmTrash" onClick={() => deleteComment(dts._id, owner)}><BsTrash /></div>}
+                {owner === dts.userId &&  <div className="CmTrash" onClick={() => {
+                    deleteComment(dts._id, owner);
+                    delF(dts._id);
+                }}><BsTrash /></div>}
             </div>
             <div className="Cmk2Cvr"></div>
         </div>
@@ -88,6 +92,11 @@ const BlogView = (props) => {
         }
     }
 
+    // deletes a comment from the state of comments
+    function delComment (cmId) {
+        console.log('delete the blog view comment from the ukokoma logma')
+    }
+
     return (
         <>
             {isLoading && <h2>Loading...</h2>}
@@ -119,7 +128,7 @@ const BlogView = (props) => {
                     {/*for posting of comments */}
                     {allComments.length > 0 &&  <div className="CmkAtCvr"><h2>All comments</h2></div>}
                     {allComments.length > 0 && allComments.map(ech => {
-                        return <BlogComments key={ech._id} dts={ech} owner={props.userId} />
+                        return <BlogComments key={ech._id} dts={ech} owner={props.userId} delF={delComment} />
                     })}
                 </>
             )}
