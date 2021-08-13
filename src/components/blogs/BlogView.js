@@ -94,7 +94,7 @@ const BlogView = (props) => {
 
     // deletes a comment from the state of comments
     function delComment (cmId) {
-        console.log('delete the blog view comment from the ukokoma logma')
+        console.log('delete the blog view comment from the ukokoma logma', cmId);
     }
 
     return (
