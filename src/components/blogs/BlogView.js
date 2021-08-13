@@ -94,11 +94,9 @@ const BlogView = (props) => {
         }
     }
 
-    // deletes a comment from the state of comments
+    // deletes a comment from the state of comments, filter the comments to remove the comment id received
     function delComment (cmId) {
-        setAllComments(cmts => {
-            return cmts.filter(arr => arr._id !== cmId)
-        });
+        setAllComments(cmts => cmts.filter(arr => arr._id !== cmId));
     }
 
     return (
