@@ -8,6 +8,8 @@ import {newLike4BlogAdded} from '../../redux/actions'
 
 const SideComp = (props) => {
 
+    console.log('we now in this my man!');
+
     props.newLike4BlogAdded({'blake':'van'}); // update the current likes for us
 
     return (
