@@ -7,7 +7,6 @@ import { BiLike } from "react-icons/bi";
 import {BsTrash} from "react-icons/bs";
 
 import {newLike4BlogAdded} from '../../redux/actions'
-
 import setup from '../setup'
 import './BlogView.css'
 
