@@ -17,7 +17,6 @@ async function fecthOnlyThisBlog (id) {
 
 const SideComp = (props) => {
 
-
     props.newLike4BlogAdded({'blake':'van'}); // update the current likes for us
 
     return (
