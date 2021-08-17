@@ -9,16 +9,17 @@ import {newLike4BlogAdded} from '../../redux/actions'
 import setup from '../setup'
 
 
-async function fecthOnlyThisBlog () {
-    const blogs = await fetch(`${setup.back_end_url}/blogs/one-blog/`);
-    const fbg = await blogs.json();
+async function fetchAllActivities () {
+    const acty = await fetch(`${setup.back_end_url}/activities/getActivities/`);
+    const fbg = await acty.json();
     return fbg;
 }
 
 
 const SideComp = (props) => {
     // fetches the indivial blog details
-    const {data, isLoading} = useQuery('one_blog', () => fecthOnlyThisBlog(), {staleTime: 300000}); // 5 mintues of staletime
+    const {data, isLoading} = useQuery('getActivities', () => fetchAllActivities(), {staleTime: 300000}); // 5 mintues of staletime
+    console.log(data, isLoading);
 
     props.newLike4BlogAdded({'blake':'van'}); // update the current likes for us
 
