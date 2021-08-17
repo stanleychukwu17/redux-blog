@@ -17,6 +17,9 @@ async function fecthOnlyThisBlog (id) {
 
 
 const SideComp = (props) => {
+    // fetches the indivial blog details
+    const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
+
     props.newLike4BlogAdded({'blake':'van'}); // update the current likes for us
 
     return (
