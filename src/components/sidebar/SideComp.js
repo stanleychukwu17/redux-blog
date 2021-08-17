@@ -5,6 +5,12 @@ import './SideComp.css'
 import {newLike4BlogAdded} from '../../redux/actions'
 
 
+async function fecthOnlyThisBlog (id) {
+    const blogs = await fetch(`${setup.back_end_url}/blogs/one-blog/${id}`);
+    const fbg = await blogs.json();
+    return fbg;
+}
+
 
 const SideComp = (props) => {
 
