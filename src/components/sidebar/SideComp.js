@@ -1,6 +1,8 @@
 import {connect} from 'react-redux'
 import { BsReverseLayoutTextWindowReverse } from "react-icons/bs";
 import { BiLike, BiCommentAdd } from "react-icons/bi";
+
+
 import './SideComp.css'
 import {newLike4BlogAdded} from '../../redux/actions'
 
