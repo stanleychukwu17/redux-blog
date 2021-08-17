@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
+import { useQuery } from 'react-query';
 import { BsReverseLayoutTextWindowReverse } from "react-icons/bs";
 import { BiLike, BiCommentAdd } from "react-icons/bi";
 
