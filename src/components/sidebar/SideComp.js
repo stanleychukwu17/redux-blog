@@ -29,7 +29,7 @@ const SideComp = (props) => {
                 <div className="SdrLst1">Lastest activites</div>
                 <div className="SdrDts2">
                     {isLoading && <div>Loadding</div>}
-
+                    
                     <div><p>Stanley posted a new blog</p></div>
                     <div><p>Stanley posted a new blog</p></div>
                 </div>
