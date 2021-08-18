@@ -29,8 +29,7 @@ const SideComp = (props) => {
                 <div className="SdrLst1">Lastest activites</div>
                 <div className="SdrDts2">
                     {isLoading && <div>Loadding</div>}
-                    {!isLoading && <div><p>Stanley posted a new blog</p></div> <div><p>Stanley posted a new blog</p></div>
-                }
+                    {!isLoading && <div><p>Stanley posted a new blog</p></div> <div><p>Stanley posted a new blog</p></div>}
                 </div>
                 <div className="ibm_hdr">
                     <div className="it_fl ibm_Ech"><i><BsReverseLayoutTextWindowReverse /></i> 5</div>
