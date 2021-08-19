@@ -1,5 +1,6 @@
 import {connect} from 'react-redux'
 import { useQuery } from 'react-query';
+import {Link} from 'react-router-dom'
 import { BsReverseLayoutTextWindowReverse } from "react-icons/bs";
 import { BiLike, BiCommentAdd } from "react-icons/bi";
 
@@ -32,9 +33,7 @@ const SideComp = (props) => {
                     {isLoading && <div>Loadding</div>}
                     {!isLoading && (
                         <>
-                            <div><p>Stanley posted a new blog</p></div>
-                            <div><p>Stanley posted a new blog</p></div>
-                            <div><p>Stanley posted a new blog</p></div>
+                            <div><Link to="babu">Stanley posted a new blog</Link></div>
                         </>
                     )}
                 </div>
