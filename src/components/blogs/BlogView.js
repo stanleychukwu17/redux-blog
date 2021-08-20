@@ -56,7 +56,7 @@ const BlogView = (props) => {
     const [allComments, setAllComments] = useState([]);
     const [totLikes, setTotLikes] = useState(0);
 
-    // fetches the indivial blog details
+    // fetches the individual blog details
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
 
     // update the state of the comments when the data(i.e the blog) has been returned from the server
