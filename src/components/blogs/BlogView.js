@@ -68,7 +68,6 @@ const BlogView = (props) => {
         }
     }, [data])
 
-
     // the useEfect below checks to see if there user wants to go straight to the comment section
     const urlComb = setup.get_url_queries();
     useEffect(() => {
