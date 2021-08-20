@@ -21,7 +21,8 @@ const SideComp = (props) => {
     // fetches the indivial blog details
     const {data, isLoading} = useQuery('getActivities', () => fetchAllActivities(), {staleTime: 300000}); // 5 mintues of staletime
 
-    props.newLike4BlogAdded({'blake':'van'}); // update the current likes for us
+    // update the current likes for us
+    props.newLike4BlogAdded({'blake':'van'});
 
     return (
         !props.logged_in_page_open && (
