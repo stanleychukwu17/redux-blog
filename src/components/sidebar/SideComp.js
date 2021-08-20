@@ -31,11 +31,7 @@ const SideComp = (props) => {
                 <div className="SdrLst1">Lastest activites</div>
                 <div className="SdrDts2">
                     {isLoading && <div>Loadding</div>}
-                    {!isLoading && (
-                        <>
-                            <div><Link to="babu">Stanley posted a new blog</Link></div>
-                        </>
-                    )}
+                    {!isLoading && data.rq.map(jk => <div><Link to="{jk.url}">{jk.actTxt}</Link></div>)}
                 </div>
                 <div className="ibm_hdr">
                     <div className="it_fl ibm_Ech"><i><BsReverseLayoutTextWindowReverse /></i> 5</div>
