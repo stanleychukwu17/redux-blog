@@ -16,7 +16,7 @@ const queryClient = new QueryClient()
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <div className="nahere">
