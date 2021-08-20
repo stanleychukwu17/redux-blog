@@ -30,7 +30,7 @@ const SideComp = (props) => {
                 <div className="SdrLst1">Lastest activites</div>
                 <div className="SdrDts2">
                     {isLoading && <div>Loadding</div>}
-                    {!isLoading && data.rq.map(jk => <div key={jk.id} id={jk.id}><Link to={jk.url}>{jk.actTxt}</Link></div>)}
+                    {!isLoading && data.rq.map(jk => <div className="SdrCC" key={jk.id} id={jk.id}><Link to={jk.url}>{jk.actTxt}</Link></div>)}
                 </div>
                 <div className="ibm_hdr">
                     <div className="it_fl ibm_Ech"><i><BsReverseLayoutTextWindowReverse /></i> 5</div>
