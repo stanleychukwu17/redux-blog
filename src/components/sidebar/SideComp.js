@@ -20,7 +20,7 @@ async function fetchAllActivities () {
 const SideComp = (props) => {
     // fetches the indivial blog details
     const {data, isLoading} = useQuery('getActivities', () => fetchAllActivities(), {staleTime: 300000}); // 5 mintues of staletime
-    console
+
     // time to show the comment now
 
     props.newLike4BlogAdded({'blake':'van'}); // update the current likes for us
