@@ -34,7 +34,7 @@ function deleteComment (comId, userId) {
 
 const BlogComments = ({dts, owner, delF}) => {
     return (
-        <div className="CmkOriCvr" data-id={dts._id}>
+        <div className="CmkOriCvr" id={dts._id} data-id={dts._id}>
             <div className="Cmk1Cvr">
                 <div className="CmkName">{dts.name}</div>
                 <div className="CmkDts">{dts.comment}</div>
@@ -76,7 +76,7 @@ const BlogView = (props) => {
         }
         if (urlComb.commentId.length > 0) {
             const {commentId} = urlComb;
-            // document.getElementById(commentId).style.background = 'yellow';
+            document.getElementById(commentId).style.background = 'yellow';
             console.log('na time to highligh tht e comment background', commentId)
         }
     }, [urlComb]);
