@@ -34,8 +34,8 @@ function deleteComment (comId, userId) {
 
 const BlogComments = ({dts, owner, delF}) => {
     return (
-        <div className="CmkOriCvr" id={dts._id} data-id={dts._id}>
-            <div className="Cmk1Cvr">
+        <div className="CmkOriCvr" data-id={dts._id}>
+            <div className="Cmk1Cvr" id={dts._id}>
                 <div className="CmkName">{dts.name}</div>
                 <div className="CmkDts">{dts.comment}</div>
                 {owner === dts.userId && <div className="CmTrash" onClick={() => {
@@ -71,15 +71,18 @@ const BlogView = (props) => {
     // the useEfect below checks to see if the user wants to go straight to the comment section, and if a specific comment should be highlighted
     const urlComb = setup.get_url_queries();
     useEffect(() => {
+        if (!data) { return false; }
+
         if (urlComb.toComment === 'yes' && document.getElementById('cmtSec')) {
             document.getElementById('cmtSec').focus();
         }
         if (urlComb.commentId.length > 0) {
             const {commentId} = urlComb;
-            document.querySelector(`#${commentId}`).style.background = 'yellow';
-            console.log('na time to highligh tht e comment background', commentId)
+            console.log(`#${commentId}`)
+            document.querySelector('.Cmk1Cvr').style.background = 'yellow';
+            console.log(`#${commentId}`)
         }
-    }, [urlComb]);
+    }, [urlComb, data]);
 
 
     // for liking of the blog
