@@ -76,7 +76,7 @@ const BlogView = (props) => {
         }
         if (urlComb.commentId.length > 0) {
             const {commentId} = urlComb;
-            document.getElementById(commentId).style.background = 'yellow';
+            document.querySelector(`#${commentId}`).style.background = 'yellow';
             console.log('na time to highligh tht e comment background', commentId)
         }
     }, [urlComb]);
