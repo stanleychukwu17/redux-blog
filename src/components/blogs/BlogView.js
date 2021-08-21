@@ -68,7 +68,7 @@ const BlogView = (props) => {
         }
     }, [data])
 
-    // the useEfect below checks to see if the user wants to go straight to the comment section
+    // the useEfect below checks to see if the user wants to go straight to the comment section, and if a specific comment should be highlighted
     const urlComb = setup.get_url_queries();
     useEffect(() => {
         if (urlComb.toComment === 'yes' && document.getElementById('cmtSec')) {
