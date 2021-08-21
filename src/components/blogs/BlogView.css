@@ -38,18 +38,18 @@
     box-shadow: 5px 5px 0 #ecf0f1, 8px 8px 0 #fff;
 }
 .Cmk1Cvr > div { padding: 3px 0; }
-.Cmk1Cvr::after {
+.dothethang::after {
     content: '';
     position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 0;
     border: 3px solid #3eadcf; border-top-left-radius: 70px; border-bottom-left-radius: 70px; border-right: 0;
-    animation-name: animateBorder; animation-duration: 4s; animation-fill-mode: forwards; animation-iteration-count: 5;
+    animation-name: animateBorder; animation-duration: 3s; animation-fill-mode: forwards; animation-iteration-count: 2;
 }
 @keyframes animateBorder {
     0% { width: 0%; border-color: gold; }
     25% { width: 100%; border-color: springgreen; }
     50% { width: 30%; border-color: hotpink; }
     70% { width: 100%; border-color: honeydew; }
-    100% { width: 0%; border-color: greenyellow; }
+    100% { width: 1%; border-width: 5px; border-color: #273c75; }
 }
 
 .CmkName  { text-transform: capitalize; }

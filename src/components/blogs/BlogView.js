@@ -78,9 +78,9 @@ const BlogView = (props) => {
         }
         if (urlComb.commentId.length > 0) {
             const {commentId} = urlComb;
-            console.log(`#${commentId}`)
-            document.querySelector('.Cmk1Cvr').style.background = 'yellow';
-            console.log(`#${commentId}`)
+            const grab = document.getElementById(commentId);
+            if (grab) {grab.classList.add('dothethang')}
+            console.log(grab, data);
         }
     }, [urlComb, data]);
 
