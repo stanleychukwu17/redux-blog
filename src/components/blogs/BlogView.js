@@ -70,9 +70,13 @@ const BlogView = (props) => {
 
     // the useEfect below checks to see if the user wants to go straight to the comment section, and if a specific comment should be highlighted
     const urlComb = setup.get_url_queries();
+    console.log(urlComb)
     useEffect(() => {
         if (urlComb.toComment === 'yes' && document.getElementById('cmtSec')) {
             document.getElementById('cmtSec').focus();
+        }
+        if (urlComb.commentId.length > 0) {
+            console.log('na time to highligh tht e comment background')
         }
     }, [urlComb]);
 
