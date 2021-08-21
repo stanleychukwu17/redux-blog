@@ -34,19 +34,22 @@
 
 /*--start-- for the comment section */
 .Cmk1Cvr {
-    background-color: #fff; width: 60%; padding: 10px 35px; border-radius: 100px; margin: 10px 0;
+    background-color: #fff; width: 60%; padding: 10px 35px; border-radius: 70px; margin: 10px 0;
     box-shadow: 5px 5px 0 #ecf0f1, 8px 8px 0 #fff;
 }
 .Cmk1Cvr > div { padding: 3px 0; }
 .Cmk1Cvr::after {
     content: '';
     position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 0;
-    border: 5px solid #3eadcf; border-radius: 100px;
-    animation-name: animateBorder; animation-duration: 1s; animation-fill-mode: forwards; animation-iteration-count: 5;
+    border: 3px solid #3eadcf; border-top-left-radius: 70px; border-bottom-left-radius: 70px; border-right: 0;
+    animation-name: animateBorder; animation-duration: 4s; animation-fill-mode: forwards; animation-iteration-count: 5;
 }
 @keyframes animateBorder {
-    0% { width: 0% }
-    100% { width: 100%; }
+    0% { width: 0%; border-color: gold; }
+    25% { width: 100%; border-color: springgreen; }
+    50% { width: 30%; border-color: hotpink; }
+    70% { width: 100%; border-color: honeydew; }
+    100% { width: 0%; border-color: greenyellow; }
 }
 
 .CmkName  { text-transform: capitalize; }
