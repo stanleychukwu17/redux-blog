@@ -21,6 +21,7 @@ function saveTheBlog ({title, content, uid}) {
     }).then(re => re.json())
 }
 
+// the component for saving a new blog
 const NewBlog = (props) => {
     let [title, setTitle] = useState('');
     let [content, setContent] = useState('');
