@@ -6,7 +6,6 @@ import { BiLike, BiCommentAdd } from "react-icons/bi";
 
 
 import './SideComp.css'
-import {newLike4BlogAdded} from '../../redux/actions'
 import setup from '../setup'
 
 
@@ -20,9 +19,6 @@ async function fetchAllActivities () {
 const SideComp = (props) => {
     // fetches the indivial blog details
     const {data, isLoading} = useQuery('getActivities', () => fetchAllActivities(), {staleTime: 300000}); // 5 mintues of staletime
-
-    // update the current likes for us
-    props.newLike4BlogAdded({'blake':'van'});
 
     return (
         !props.logged_in_page_open && (
@@ -46,8 +42,4 @@ let mapStateToProps = (state) => {
     return {'logged_in_page_open':state.logged_in_page_open, 'likes':state.likes}
 }
 
-let mapDispatchToProps = dispatch => {
-    return {newLike4BlogAdded : (dts) => dispatch(newLike4BlogAdded(dts))}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SideComp);
+export default connect(mapStateToProps)(SideComp);

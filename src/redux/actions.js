@@ -18,6 +18,5 @@ export const userHasLoggedOut = (udts) => {
 };
 
 export const newLike4BlogAdded = (obj) => {
-    return (dispatch) => {
-    }
+    return (dispatch) => {}
 };
