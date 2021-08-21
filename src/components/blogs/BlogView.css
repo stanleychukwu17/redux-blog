@@ -31,11 +31,24 @@
     width: 100%; height: 5px; bottom: 0; top: auto;
 }
 
+
+/*--start-- for the comment section */
 .Cmk1Cvr {
     background-color: #fff; width: 60%; padding: 10px 35px; border-radius: 100px; margin: 10px 0;
     box-shadow: 5px 5px 0 #ecf0f1, 8px 8px 0 #fff;
 }
 .Cmk1Cvr > div { padding: 3px 0; }
+.Cmk1Cvr::after {
+    content: '';
+    position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 0;
+    border: 5px solid #3eadcf; border-radius: 100px;
+    animation-name: animateBorder; animation-duration: 1s; animation-fill-mode: forwards; animation-iteration-count: 5;
+}
+@keyframes animateBorder {
+    0% { width: 0% }
+    100% { width: 100%; }
+}
+
 .CmkName  { text-transform: capitalize; }
 .CmTrash {
     position: absolute; top: 29px; right: 25px; bottom: auto; cursor: pointer; visibility: hidden;
@@ -43,11 +56,8 @@
 }
 .CmTrash:active { top: 30px; }
 .Cmk1Cvr:hover .CmTrash {
-    visibility: visible; animation-name: showBin; animation-duration: .6s;
-    animation-fill-mode: forwards;
-    /* transform: scale(2); */
+    visibility: visible; animation-name: showBin; animation-duration: .6s; animation-fill-mode: forwards;
 }
-
 @keyframes showBin {
     0% { right: 0px; }
     50% { right: 45px; }
@@ -55,3 +65,4 @@
     80% { transform: scale(1.5) rotateZ(-20deg); }
     100% { transform: scale(1); }
 }
+/*--end-- */
