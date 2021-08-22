@@ -44,7 +44,7 @@ function BlogEch ({inf}) {
     )
 }
 
-// the main parent container for both the search bar
+// the main parent container for both the search bar and the
 const BlogDts = (props) => {
     let {data, status} = useQuery('all_blogs', fecthBlogs, {staleTime:300000});
 
