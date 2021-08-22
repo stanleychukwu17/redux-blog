@@ -44,7 +44,7 @@ function BlogEch ({inf}) {
     )
 }
 
-// the main parent
+// the main parent container
 const BlogDts = (props) => {
     let {data, status} = useQuery('all_blogs', fecthBlogs, {staleTime:300000});
 
