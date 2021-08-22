@@ -12,6 +12,7 @@ async function fecthBlogs () {
     return fusers;
 }
 
+// for each of the blogs returned from the server
 function BlogEch ({inf}) {
     const [likes, setLikes] = useState(inf.likes);
     const history = useHistory();
