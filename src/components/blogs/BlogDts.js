@@ -53,7 +53,8 @@ const BlogDts = (props) => {
             <div className="">
                 <div className="it_fl Blghdr">Latest blogs</div>
                 <div className="it_rl ">
-                    <input type="text" placeholder="Search with title" /> <select><option value="">Sort blogs</option></select>
+                    <input type="text" placeholder="Search with title" />
+                    <select><option value="">Sort blogs</option></select>
                 </div>
             </div>
             <div className="">
