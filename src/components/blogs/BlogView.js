@@ -32,6 +32,7 @@ function deleteComment (comId, userId) {
 }
 
 
+
 const BlogComments = ({dts, owner, delF}) => {
     return (
         <div className="CmkOriCvr" data-id={dts._id}>
