@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { useQuery } from 'react-query';
 import { Link, useHistory } from 'react-router-dom';
 
@@ -47,6 +47,10 @@ function BlogEch ({inf}) {
 // the main parent container for both the search bar and the blogs
 const BlogDts = (props) => {
     let {data, status} = useQuery('all_blogs', fecthBlogs, {staleTime:300000});
+
+    useEffect(() => {
+        console.log('we want try something')
+    }, [])
 
     return (
         <div className="dahlah">
