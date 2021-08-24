@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom';
+import { useQueryClient } from 'react-query';
 
 import setup from '../setup'
 import './NewBlog.css'
@@ -26,10 +27,14 @@ const NewBlog = (props) => {
     let [title, setTitle] = useState('');
     let [content, setContent] = useState('');
     let [blogSaved, setBlogSaved] = useState(false);
+    let queryC = useQueryClient();
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) { return <Redirect to='/login' />; }
-    if (blogSaved) { return <Redirect to='/' />; }
+    if (blogSaved) {
+        queryC.invalidateQueries('all_blogs');
+        return <Redirect to='/' />;
+    }
 
     return (
         <div>
