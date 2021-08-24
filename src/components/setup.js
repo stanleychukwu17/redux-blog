@@ -1,3 +1,10 @@
+import { useQueryClient } from "react-query";
+
+const DisRegard = () => {
+    const queryClient = useQueryClient();
+    console.log('begin to loose the chains')
+}
+
 const bambi = {
     'back_end_url' : 'http://localhost:8080',
 
@@ -34,8 +41,8 @@ const bambi = {
     },
 
     // invalidates a particular query handler so that react-query can reload the data
-    invalidat_dis_react_query: function () {
-
+    invalidat_dis_react_query: function (wch) {
+        DisRegard(wch)
     }
 }
 
