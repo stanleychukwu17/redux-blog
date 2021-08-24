@@ -48,10 +48,6 @@ function BlogEch ({inf}) {
 const BlogDts = (props) => {
     let {data, status} = useQuery('all_blogs', fecthBlogs, {staleTime:300000});
 
-    useEffect(() => {
-        console.log('we want try something')
-    }, [])
-
     return (
         <div className="dahlah">
             <div className="">
