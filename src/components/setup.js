@@ -33,7 +33,7 @@ const bambi = {
         }).then(re => re.json()).then(re => {})
     },
 
-    // invalidates a particular query handler so that  our react-query
+    // invalidates a particular query handler so that react-query
     invalidat_dis_react_query: function () {
 
     }
