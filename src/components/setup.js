@@ -31,6 +31,11 @@ const bambi = {
         fetch(`${bambi.back_end_url}/blogs/like-new-blog`, {
             mode: 'cors', method:"POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({blog_id})
         }).then(re => re.json()).then(re => {})
+    },
+
+    
+    invalidat_dis_react_query: function () {
+
     }
 }
 
