@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
+import { useQuery, useQueryClient } from 'react-query';
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 
@@ -56,6 +56,7 @@ const BlogView = (props) => {
     const [totComments, setTotComments] = useState(0);
     const [allComments, setAllComments] = useState([]);
     const [totLikes, setTotLikes] = useState(0);
+    const queryClient = useQueryClient();
 
     // fetches the individual blog details
     const {data, isLoading} = useQuery(['one_blog', id], () => fecthOnlyThisBlog(id), {staleTime: 300000}); // 5 mintues of staletime
@@ -81,7 +82,6 @@ const BlogView = (props) => {
             const {commentId} = urlComb;
             const grab = document.getElementById(commentId);
             if (grab) {grab.classList.add('dothethang')}
-            console.log(grab, data);
         }
     }, [urlComb, data]);
 

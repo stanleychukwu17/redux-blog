@@ -27,13 +27,13 @@ const NewBlog = (props) => {
     let [title, setTitle] = useState('');
     let [content, setContent] = useState('');
     let [blogSaved, setBlogSaved] = useState(false);
-    let queryC = useQueryClient();
+    let queryClient = useQueryClient();
 
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) { return <Redirect to='/login' />; }
     if (blogSaved) {
-        queryC.invalidateQueries('all_blogs');
-        queryC.invalidateQueries('getActivities');
+        queryClient.invalidateQueries('all_blogs');
+        queryClient.invalidateQueries('getActivities');
         return <Redirect to='/' />;
     }
 
