@@ -19,6 +19,7 @@ async function fetchAllActivities () {
 const SideComp = (props) => {
     // fetches the indivial blog details
     const {data, isLoading} = useQuery('getActivities', () => fetchAllActivities(), {staleTime: 300000}); // 5 mintues of staletime
+    console.log(data)
 
     return (
         !props.logged_in_page_open && (
