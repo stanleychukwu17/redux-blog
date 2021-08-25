@@ -96,6 +96,7 @@ const BlogView = (props) => {
     // for updating the comments with the main one returned from the database
     const refreshComment = (dts, wch) => {
         if (wch === 'last_guy_added') {
+            queryClient.invalidateQueries('getActivities'); // invalidates the 
             setAllComments(c => {
                 return [{'_id':dts._id, 'userId':dts.userId, 'name':props.username, 'comment':comment}, ...c]
             });
