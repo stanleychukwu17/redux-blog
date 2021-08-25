@@ -33,7 +33,7 @@ const NewBlog = (props) => {
     if (!props.logged_in) { return <Redirect to='/login' />; }
     if (blogSaved) {
         queryClient.invalidateQueries('all_blogs');
-        queryClient.invalidateQueries('getActivities');
+        queryClient.invalidateQueries('getActivities'); // invalidates the activities on the side, so that new activities can be loaded
         return <Redirect to='/' />;
     }
 
