@@ -96,7 +96,7 @@ const BlogView = (props) => {
     // for updating the comments with the main one returned from the database
     const refreshComment = (dts, wch) => {
         if (wch === 'last_guy_added') {
-            queryClient.invalidateQueries('getActivities'); // invalidates the activities on the side, so that this new one can be loaded
+            queryClient.invalidateQueries('getActivities'); // invalidates the activities on the side, so that new activities can be loaded
             setAllComments(c => {
                 return [{'_id':dts._id, 'userId':dts.userId, 'name':props.username, 'comment':comment}, ...c]
             });
