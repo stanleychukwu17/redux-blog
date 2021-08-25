@@ -32,7 +32,7 @@ const NewBlog = (props) => {
     // if the user is not logged in, we re-direct to the logging page
     if (!props.logged_in) { return <Redirect to='/login' />; }
     if (blogSaved) {
-        queryClient.invalidateQueries('all_blogs');
+        queryClient.invalidateQueries('all_blogs'); // invalidates the blogs loaded at the home page so that the new blogs can be loaded
         queryClient.invalidateQueries('getActivities'); // invalidates the activities on the side, so that new activities can be loaded
         return <Redirect to='/' />;
     }
