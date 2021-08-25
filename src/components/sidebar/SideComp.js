@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import { useQuery } from 'react-query';
 import {Link} from 'react-router-dom'
 import { BsReverseLayoutTextWindowReverse } from "react-icons/bs";
-import { BiLike, BiCommentAdd } from "react-icons/bi";
+import { BiUserPin, BiCommentAdd } from "react-icons/bi";
 
 
 import './SideComp.css'
@@ -31,7 +31,7 @@ const SideComp = (props) => {
                 </div>
                 <div className="ibm_hdr">
                     <div className="it_fl ibm_Ech"><i><BsReverseLayoutTextWindowReverse /></i> 5</div>
-                    <div className="it_fl ibm_Ech"><i><BiLike /></i> {props.likes}</div>
+                    <div className="it_fl ibm_Ech"><i><BiUserPin /></i> {props.likes}</div>
                     <div className="it_fl ibm_Ech"><i><BiCommentAdd /></i> 25</div>
                 </div>
             </div>
@@ -40,7 +40,7 @@ const SideComp = (props) => {
 }
 
 let mapStateToProps = (state) => {
-    return {'logged_in_page_open':state.logged_in_page_open, 'likes':state.likes}
+    return {'logged_in_page_open':state.logged_in_page_open}
 }
 
 export default connect(mapStateToProps)(SideComp);
