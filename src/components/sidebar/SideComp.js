@@ -30,9 +30,9 @@ const SideComp = (props) => {
                     {!isLoading && data?.rq.map(jk => <div className="SdrCC" key={jk.id} id={jk.id}><Link to={jk.url}>{jk.actTxt}</Link></div>)}
                 </div>
                 <div className="ibm_hdr">
-                    <div className="it_fl ibm_Ech"><i><BsReverseLayoutTextWindowReverse /></i> 5</div>
-                    <div className="it_fl ibm_Ech"><i><BiUserPin /></i> {props.likes}</div>
-                    <div className="it_fl ibm_Ech"><i><BiCommentAdd /></i> 25</div>
+                    <div className="it_fl ibm_Ech"><i><BsReverseLayoutTextWindowReverse /></i> {data?.totB}</div>
+                    <div className="it_fl ibm_Ech"><i><BiUserPin /></i> {data?.totU}</div>
+                    <div className="it_fl ibm_Ech"><i><BiCommentAdd /></i> {data?.totC}</div>
                 </div>
             </div>
         )
