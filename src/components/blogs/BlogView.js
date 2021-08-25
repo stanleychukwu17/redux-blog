@@ -77,7 +77,7 @@ const BlogView = (props) => {
         if (urlComb.toComment === 'yes' && document.getElementById('cmtSec')) {
             document.getElementById('cmtSec').focus();
         }
-        if (urlComb.commentId.length > 0) {
+        if (urlComb?.commentId.length > 0) {
             const {commentId} = urlComb;
             const grab = document.getElementById(commentId);
             if (grab) {grab.classList.add('dothethang')}
