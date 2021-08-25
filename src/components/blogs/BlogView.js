@@ -6,7 +6,6 @@ import {connect} from 'react-redux'
 import { BiLike } from "react-icons/bi";
 import {BsTrash} from "react-icons/bs";
 
-import {newLike4BlogAdded} from '../../redux/actions'
 import setup from '../setup'
 import './BlogView.css'
 
@@ -88,7 +87,6 @@ const BlogView = (props) => {
 
     // for liking of the blog
     let likeBlog = (blogId) => {
-        props.newLike4BlogAdded();
         setTotLikes(c => c + 1);
         setup.likeThisblog(blogId);
     };
@@ -152,8 +150,4 @@ let mapStateToProps = state => {
     return {'userId':state.udts.uid, 'username':state.udts.username}
 }
 
-let mapDispatchToProps = dispatch => {
-    return {newLike4BlogAdded : () => dispatch(newLike4BlogAdded())}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BlogView);
+export default connect(mapStateToProps)(BlogView);
