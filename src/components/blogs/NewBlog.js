@@ -33,6 +33,7 @@ const NewBlog = (props) => {
     if (!props.logged_in) { return <Redirect to='/login' />; }
     if (blogSaved) {
         queryC.invalidateQueries('all_blogs');
+        queryC.invalidateQueries('getActivities');
         return <Redirect to='/' />;
     }
 
