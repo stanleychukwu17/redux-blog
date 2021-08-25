@@ -17,7 +17,6 @@ function BlogEch ({inf}) {
     const [likes, setLikes] = useState(inf.likes);
     const history = useHistory();
 
-    let comments = 0;
     let L1 = `/BlogPage/${inf._id}`
     let L2 = `/BlogPage/${inf._id}?toComment=yes`
 
@@ -37,7 +36,7 @@ function BlogEch ({inf}) {
                         }} /></div>
                         <div className="it_fl BlgcIcon" onClick={sendAmToComment}><img src="https://cdn2.iconfinder.com/data/icons/bitsies/128/Message-256.png" alt="" /></div>
                     </div>
-                    <div className="it_rl BlgcStats"><div>{likes} likes</div> <div>{comments} comments</div></div>
+                    <div className="it_rl BlgcStats"><div>{likes} likes</div> <div>{inf.comments} comments</div></div>
                 </div>
             </div>
         </div>
