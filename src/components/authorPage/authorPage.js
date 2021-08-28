@@ -2,4 +2,4 @@ const AuthorPage = () => {
 
 }
 
-export default Author
+export default AuthorPage;
