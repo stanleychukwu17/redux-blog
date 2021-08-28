@@ -1,6 +1,6 @@
 const AuthorPage = () => {
     return (
-        <div></div>
+        <div>The profile page of the blog poster</div>
     );
 }
 
