@@ -52,7 +52,7 @@
     100% { width: 1%; border-width: 5px; border-color: #273c75; }
 }
 
-.CmkName  { text-transform: capitalize; }
+.CmkName  {text-transform: capitalize; }
 .CmTrash {
     position: absolute; top: 29px; right: 25px; bottom: auto; cursor: pointer; visibility: hidden;
     transform: scale(2);
