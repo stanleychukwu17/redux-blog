@@ -56,7 +56,8 @@
     text-transform: capitalize;
 }
 .CmTrash {
-    position: absolute; top: 29px; right: 25px; bottom: auto; cursor: pointer; visibility: hidden;
+    position: absolute; top: 29px; right: 25px; bottom: auto; cursor: pointer;
+    visibility: hidden;
     transform: scale(2);
 }
 .CmTrash:active { top: 30px; }
