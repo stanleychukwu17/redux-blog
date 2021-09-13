@@ -34,7 +34,8 @@
 
 /*--start-- for the comment section */
 .Cmk1Cvr {
-    background-color: #fff; width: 60%; padding: 10px 35px;
+    background-color: #fff; width: 60%;
+    padding: 10px 35px;
     border-radius: 70px; margin: 10px 0;
     box-shadow: 5px 5px 0 #ecf0f1, 8px 8px 0 #fff;
 }
