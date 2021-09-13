@@ -68,7 +68,8 @@
 .Cmk1Cvr:hover .CmTrash {
     visibility: visible;
     animation-name: showBin;
-    animation-duration: .6s; animation-fill-mode: forwards;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes showBin {
