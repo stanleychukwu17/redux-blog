@@ -21,7 +21,8 @@
 .CmkAtCvr:before {
     content: ""; width: 0; height: 0;
     display: block; position: absolute;
-    bottom: -30px; right: 0; left: auto; top: auto;
+    bottom: -30px; 
+    right: 0; left: auto; top: auto;
     border: 13px solid transparent;
     border-top-color: black;
 }
