@@ -3,7 +3,8 @@
 .Blvw_tdts { font-size: 16px; line-height:2; word-spacing: 2px; }
 
 .Blvw_cb1 { padding: 30px 0 0; font-size: 20px;}
-.Blvw_cb2 { width: 68%;
+.Blvw_cb2 {
+    width: 68%;
     margin: 10px 0 0 5%;
 }
 .Blvw_cb2 textarea {
