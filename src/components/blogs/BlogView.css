@@ -98,7 +98,7 @@
     text-transform: capitalize;
 }
 .CmTrash {
-    position: absolute; top: 29px;right: 25px;
+    position: absolute; top: 29px; right: 25px;
     bottom: auto;
     cursor: pointer;
     visibility: hidden;
