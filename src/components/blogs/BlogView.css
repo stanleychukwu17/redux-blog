@@ -103,7 +103,7 @@
     visibility: hidden;
     transform: scale(2);
 }
-.CmTrash:active {top: 30px;}
+.CmTrash:active {top: 30px; }
 .Cmk1Cvr:hover .CmTrash {
     visibility: visible;
     animation-name: showBin;
