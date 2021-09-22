@@ -95,7 +95,7 @@
 }
 
 .CmkName  {
-    text-transform: capitalize;
+text-transform: capitalize;
 }
 .CmTrash {
     position: absolute; top: 29px; right: 25px; bottom: auto;
